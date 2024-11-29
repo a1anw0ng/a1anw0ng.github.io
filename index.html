@@ -19,9 +19,6 @@
             padding: 1rem 0;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-        }
         nav {
             display: flex;
             justify-content: center;
@@ -56,12 +53,12 @@
             border-bottom: 2px solid #333;
             padding-bottom: 0.5rem;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            margin: 0.5rem 0;
+        pre {
+            background: #f8f8f8;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-x: auto;
         }
         footer {
             text-align: center;
@@ -69,7 +66,21 @@
             color: #fff;
             padding: 1rem 0;
         }
+        .hidden {
+            display: none;
+        }
     </style>
+    <script>
+        function toggleNotes() {
+            const notesContent = document.getElementById('notes-content');
+            if (notesContent.classList.contains('hidden')) {
+                notesContent.classList.remove('hidden');
+            } else {
+                notesContent.classList.add('hidden');
+            }
+        }
+    </script>
+
 </head>
 <body>
     <header>
@@ -79,10 +90,14 @@
     </header>
 
     <nav>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
+        <a href="#resume">Resume</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
+        <a href="#techical notes">Education</a>
+        <a href="#interests">Interests</a>
+        <a href="#photos">Photos</a>
+        <a href="#favorites">Favorites</a>
+        <a href="#notes">Notes</a>
     </nav>
 
     <div class="container">
@@ -137,6 +152,39 @@
                 <li><strong>Technologies:</strong> PostgreSQL, Jupyter Notebook, Visual Studio Code, Tableau, AWS</li>
             </ul>
         </section>
+
+
+        <!-- Notes Section -->
+        <section id="notes">
+            <h2>Notes</h2>
+            <div id="notes-content" class="hidden">
+                <pre>
+Below are the common commands that check:
+    \du              # List all users and roles, and privileges
+    \l               # To list all the DBs in the SQL-Server
+    \dt              # List all tables
+    \d               # List all relations
+    SELECT current_database();  # Check your current DB
+
+# To create insert 
+    \i /path/to/your/file.sql
+
+There are 2 levels in DB login:
+    1. Level 1: The DB_server, which lets you see all the DBs in the DB-Server.
+    2. Level 2: Inside a specific DB, e.g., northwind.
+
+    \q      # Exit from level 2
+    exit    # Exit from level 1
+
+# To run SQL:
+    SELECT * FROM customers;
+
+# To exit out of the query data:
+    q
+                </pre>
+            </div>
+
+
     </div>
 
     <footer>
