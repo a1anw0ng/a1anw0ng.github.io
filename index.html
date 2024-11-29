@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Wong - Personal Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem 1rem;
+            background: #fff;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background: #333;
+            color: #fff;
+        }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 2rem;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 0.5rem 0;
+        }
+        footer {
+            text-align: center;
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Alan Wong</h1>
+        <p>San Jose, CA | (408) 505-1595 | <a href="mailto:alan.j.wong@columbia.edu" style="color: #fff;">alan.j.wong@columbia.edu</a></p>
+        <a href="https://linkedin.com/in/alanwong11/" target="_blank" style="color: #fff;">LinkedIn Profile</a>
+    </header>
+
+    <nav>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+    </nav>
+
+    <div class="container">
+        <section id="education">
+            <h2>Education</h2>
+            <p><strong>Columbia University</strong> - New York, NY</p>
+            <p>MS in Data Science, Expected Dec 2025</p>
+            <ul>
+                <li>Relevant Coursework: Computer Systems and Databases, Applied Machine Learning, Statistical Inference and Modeling</li>
+            </ul>
+            <p><strong>University of California, Los Angeles (UCLA)</strong> - Los Angeles, CA</p>
+            <p>BS in Statistics and Data Science, GPA: 3.8/4.0, Jun 2024</p>
+            <ul>
+                <li>Relevant Coursework: Probability and Statistics, Exploratory Data Analysis and Visualization, Data Structures and Algorithms</li>
+            </ul>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <p><strong>Stanford University - SHTEM Program</strong> - Stanford, CA</p>
+            <p>Research Intern-Mentor, May 2023 - Aug 2023</p>
+            <ul>
+                <li>Administered Fast Fourier Transform (FFT) to efficiently convert 10,000 audio files into graphs with known peak values</li>
+                <li>Trained a CNN spanning 1000 epochs using audio features from a CSV</li>
+                <li>Co-authored a paper on a system for audio separation and instrument identification</li>
+            </ul>
+            <p><strong>Code Ninjas</strong> - San Jose, CA</p>
+            <p>Assistant Branch Manager/Coding Instructor, Aug 2021 - Sep 2022</p>
+            <ul>
+                <li>Instructed students in Python, Javascript, and Lua, focusing on practical applications</li>
+                <li>Mentored youth in CAD, Minecraft Modeling, and Roblox Studio</li>
+                <li>Taught programming fundamentals to over 50 students</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li><strong>Societal and Environmental Impacts of Air Traffic</strong> - Enhanced geospatial data maps and refined visualizations with Tableau.</li>
+                <li><strong>Baseball Hall of Fame Prediction</strong> - Built predictive models achieving ~90% accuracy using player statistics.</li>
+                <li><strong>IMDb Sentiment Analysis</strong> - Designed machine learning models for sentiment analysis of movie reviews.</li>
+                <li><strong>Good Lawyer, Bad Lawyer</strong> - Performed sentiment analysis on client-lawyer conversations using R and Tableau.</li>
+                <li><strong>Autonomous vs. Human Driving</strong> - Analyzed autonomous vehicle behavior and co-authored a related paper.</li>
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2>Languages and Technologies</h2>
+            <ul>
+                <li><strong>Languages:</strong> Python, R, SQL, Javascript, Java, C++, HTML/CSS</li>
+                <li><strong>Operating Systems:</strong> macOS, Linux, Windows</li>
+                <li><strong>Technologies:</strong> PostgreSQL, Jupyter Notebook, Visual Studio Code, Tableau, AWS</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Alan Wong | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
