@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Wong - Project Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #001f3f, #1a73e8);
+            color: white;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #001f3f;
+        }
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .search-bar {
+            margin-left: auto;
+        }
+        .search-bar input {
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 50px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .profile-card {
+            background: white;
+            color: black;
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: 20px;
+        }
+        .profile-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .profile-card h2 {
+            margin: 10px 0 5px;
+        }
+        .profile-card p {
+            margin: 5px 0;
+        }
+        .content {
+            max-width: 600px;
+            padding: 20px;
+        }
+        .content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons a {
+            text-decoration: none;
+            color: white;
+            background: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background 0.3s;
+            font-size: 16px;
+        }
+        .buttons a:hover {
+            background: #0056b3;
+        }
+        footer {
+            background: #001f3f;
+            color: #ccc;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 50px;
+        }
+        footer .footer-content {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+        footer .footer-content div {
+            text-align: center;
+            margin: 10px;
+        }
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Alan Wong</h1>
+        <nav>
+            <a href="#">Resume</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
+            <a href="#">More</a>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="profile-card">
+            <img src="profile.jpg" alt="Alan Wong">
+            <h2>Alan Wong</h2>
+            <p>Data Scientist</p>
+            <p>
+                <a href="#">LinkedIn</a> |
+                <a href="#">GitHub</a>
+            </p>
+        </div>
+
+        <div class="content">
+            <h1>Welcome</h1>
+            <p>Empower Your Career with a Standout Resume</p>
+            <div class="buttons">
+                <a href="#">About Me</a>
+                <a href="#">Services</a>
+            </div>
+            <p>Hi! My name is Alan, and I am an M.S. student at Columbia University studying Data Science. I was drawn to the data science community due to the analysis of large amounts of data that is used in creating informed decisions about fields ranging from the business landscape to higher academia.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <p>&copy; 2035 by Maya Nelson</p>
+            </div>
+            <div>
+                <p><strong>Call:</strong> 408-505-1595</p>
+            </div>
+            <div>
+                <p><strong>Write:</strong> alan.j.wong@columbia.edu</p>
+            </div>
+            <div>
+                <p><strong>Follow:</strong> LinkedIn</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
