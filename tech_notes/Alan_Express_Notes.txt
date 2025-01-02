@@ -1,0 +1,412 @@
+
+1. How to search for Video to watch in Youtube:
+	a. latest 
+	b. Popular (more people view)
+	c. short and sweet
+	d. with github source code
+
+2. To fetch the source code from github:
+	a. Get the URL for HTTPS
+		https://github.com/WebDevSimplified/express-crash-course.git
+	b. Download and clone the source code from github:
+	 	git clone https://github.com/WebDevSimplified/express-crash-course.git
+
+3. Go into the Folder and launch Visual Studio Code:
+	cd express-crash-course/
+	code .
+
+=============================
+1. Need to install:
+	node
+	npm
+
+2. To check is installed successful:
+	node -vala	
+	npm -v    # node package manager
+
+	guo@guo:~$ node -v
+	v14.17.6
+	guo@guo:~$ npm -v
+	6.14.15
+	guo@guo:~$ 
+
+3. mkdir alanLearn
+   cd alanLearn
+   mkdir alanExpress1
+   cd alanExpress1
+
+4. Create a package.json, and use it to manage all the packages that you are using for this program
+   npm init -y    # -y means "yes" to all or default
+
+5. Code .
+
+6. To install express package:
+	npm i express   # or npm install express
+
+	ls -l
+	ls -lR 
+	ls -lR | wc -l  #To see how files installed
+
+	URL for the express package in NPM website
+		https://www.npmjs.com/package/express
+
+7. To install nodemon tool -only use while you are in development
+	npm i --save-dev nodemon
+
+7.1 Create a file called:
+	server.js in visualCode
+
+8. Import 3 lines:
+	const express = require("express")   # import or include express package or library in this file
+
+	const app = express()    # instaniate an express object from express package
+				 # and start the web server
+	app.listen(3000)         # this webserver will running in port: 3000 for localhost
+				 # localhost -- short-name for 127.0.0.1
+				                or in this machine is IP address: 192.168.0.39
+
+9. Client-Server concept
+
+10. Restful API -- (just like function, but, much more complicated)
+	a. Use network protocol:
+		HTTP, HTTPS
+
+	b. Method:
+             https://www.techtarget.com/searchapparchitecture/tip/The-5-essential-HTTP-methods-in-RESTful-API-development
+		GET
+		PUT - create
+		DELETE
+		POST - update
+
+	c. HTTP status code:  
+	     https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+		200 - OK
+		300 - re-direct
+		400+ - Client Error
+		400 - bad request
+  		404 - not found
+		500+ - Server Error
+		500 - Internal Server Error
+		501 - Not Implemented
+
+11. The function call in Restful API:
+	app.get("/", (req, res) => {
+	    console.log("function called");
+   	    res.send("This is a return to your call")
+	});
+
+	"/" -- means root function call, which mean if you don't a function name
+	get - the GET method of restful API
+	req object - contains all the request coming from client
+	res object - contains all the response send out from the server
+
+	When you see strange code: => { ... });  -- it means this function is an asynchronous call (non-blocked call)
+		
+	Up to this point, all the function calls you have learned are synchronous calls (blocked call)
+
+12. To send back HTTP Status code:
+	res.sendStatus(501)
+
+13. You use the browser's Inspect to debug or see error messages on Console 
+	Console -- for error message
+	Element tab -- for html and DOM 
+	Network tab -- for Restful API calls  (remember is select: all)
+	Application tab -- for cookie and token and local storage and Session storage
+	Source tab -- for client source code
+
+14. You could send parameters as:
+	number
+	string
+	json  -- json could cover every
+	boolean
+
+15. Unlike function calls, which could have any parameters, In Restful API, you only need to send 1 parameter, 
+    but this parameter could be a json, which could include thousand parameters inside it.
+
+
+16. How to work with Json:
+	a. Use the JF Best JSON Formatter and Validation
+		https://jsonformatter.org/
+
+		1. Validate
+		2. Format/Beatify
+		3. Minify /Compact
+		4. Convert json to:
+				XML
+				CSV -- for excel
+				YAML
+
+	b. How to handle Json in Codes:
+		1. JSON.stringify()  -- to convert a json object into a string
+				     -- Why?  if you want to send the json object across an API call, you should stringify it first
+				     -- so, you are simply sending a string over
+
+		2. JSON.parse()  -- to convert a json string into a json object
+				 -- Why? You want to use json structure to access data:
+				 -- xxxObj["conf"]["title"]  or xxxObj.conf.title
+
+17. To install ejs   # a package to HTML template
+	npm install ejs
+
+	https://ejs.co/	
+		
+18. To set "ejs" into my express app, and use as "view engine"
+	app.set("view engine", "ejs")
+
+19. Browser could only understand: 
+	1. html -- basic-structure
+		https://www.w3schools.com/html/
+
+	2. CSS  -- make it look pretty
+		https://www.w3schools.com/css/default.asp
+
+	3. Javascript -- make it dynamic, without JS, it is a static web-site
+		https://www.w3schools.com/js/default.asp
+	
+	So, it make a request and downloads the HTMP/CSS/JS, it could then run them in the Browser
+
+
+20. The issue of late-night's "Not able to display image file":
+	The root cause was: 
+	  When the browser tries to display the image, yet. it could not found the image file in the Browser's source area
+
+	To fix:  https://stackoverflow.com/questions/59475620/cant-display-an-image-with-ejs-file-in-node-js
+	1. to create a folder and stores all the image files into:
+		mkdir img
+		mv img_girl.jpg /img/.
+		mv img_flwr.gif /img/.
+		mv paper.gif /img/.
+
+	2. to upload those images into the Browser's source area
+		app.use(express.static('img'));
+	  
+
+21. Every-time you want start everything after reboot:
+
+	a. To start the server: 
+		cd alanLearn/alanExpress1/
+		npm run devStart           # devStart was setup in package.json  "scripts" -> "devStart"
+
+	b. To launch a client:
+		To launch a browser
+		Type-in: http://localhost:3000/
+
+	c. Every-Time, you changed codes; and to test the code changes:
+		Click: Re-fresh button in Browser -> to trigger the page to be reloaded.
+
+
+22. To test your restful API funtion calls without the Browser (Often Back-end developer will use Postman)
+	1. Launch postman
+	2. Select the API-method: (GET / POST / PUT / DELETE / etc..)
+	3. Type-in: The URL: ex: localhost:3000
+	4. Type-in other param if needed	
+	5. Click: Send button
+
+
+23. To pass parameter from server.js to index.ejs
+	<%= locals.text || 'Default' %>  # means to pass parameter: locals.text and default value = 'Default'
+
+24. Now, we have all the fundandation build, let's add another api function:
+	app.get('/users', (req, res) => {
+	    res.send("User List");
+	});
+
+	app.get('/users/new', (req, res) => {
+	    res.send("User New Form");
+	});
+
+25. To test those 2 new api new functions:
+	In browser or postman:
+	  Type-in URL + route: 
+		http://localhost:3000/users   
+		http://localhost:3000/users/new
+	
+	So, the function name is called route:
+	   route1 = /users
+	   route2 = /users/new
+    		
+
+26. To best organize the restful API functions in groups or multiple-level files
+	1. Create a routes folder
+	2. create a users.js file in it
+	3. copy the 2 functions from top-level into users.js
+		const express = require("express")    # to include the express package into this file
+		const router = express.Router()       # to create or initiate the express.Router class object
+
+
+		router.get('/', (req, res) => {       # api function /users
+		    res.send("User List");
+		});
+
+		router.get('/new', (req, res) => {    # api function /users/new
+		    res.send("User New Form");
+		});
+
+
+		module.exports = router      # To export the router object to the outside world
+
+	4. To connects the /routes/users.js file and objects into the server.js
+
+		const userRouter = require('./routes/users')   # to include the /routes/users.js file in to object: userRouter
+
+
+		app.use("/users", userRouter)		       # to route the api calls with '/users' into the userRouter object	
+
+ 	
+27. To add different method restful api functions:
+
+	router.post('/', (req, res) => {   # POST method
+	    res.send("Update List");
+	});
+
+	router.put('/', (req, res) => {    # PUT method
+	    res.send("Create List"); 
+	});
+
+	router.delete('/', (req, res) => {  # DELETE method
+	    res.send("Delete List");
+	});
+
+	router.get('/:id', (req, res) => {  # GET method with pass-in variable: id
+	    res.send(`Get User With ID ${req.params.id}`);
+	});
+
+28. Another way to organize, or group multiple functions into a group of functions:
+	router.route('/:id')
+	    .get((req, res) => {
+		res.send(`Get User With ID ${req.params.id}`);
+	    })
+	    .post((req, res) => {
+	    res.send(`Update User With ID ${req.params.id}`);
+	    })
+	    .put((req, res) => {
+		res.send(`Create User With ID ${req.params.id}`);
+	    })
+	    .delete((req, res) => {
+		res.send(`Delete User With ID ${req.params.id}`);
+	    });
+
+
+29. To add an middle-man function before it reach to the actual function
+    
+	client ---> middle function -> next() -> calling-function
+
+	const users = [{name: "Kyle"}, { name: "sally"}]
+	router.param("id", (req, res, next, id) => {     <== middleware function; to intersect the api calls
+	    console.log(id)                              # id = 1
+	    req.user_guo = users[id]           # to create a variable inside req object, and assign the value of users[id] into it
+	    next()
+	})
+
+
+	.put((req, res) => {
+	    console.log(req.user_guo)          # print out the created variable: req.user_guo
+	    res.send(`Create User With ID ${req.params.id}`);   
+	})
+
+30. To create a middleware function for all the incoming api calls:
+
+	app.use(logger)    # to use the middleware logger, 
+                           ** please note, this line have to be on top of line: const userRouter = require('./routes/users')
+ 
+	function logger(req, res, next) {
+	    console.log(req.originalUrl);
+	    next();
+	}
+
+31. Instead of logger for every function, you could use for only one:
+	
+	// app.use(logger)    # to use the middleware logger
+
+	app.get("/", logger, (req, res) => {   # logger for this function call
+
+32. Or we could more app.use(logger) into users.js file, so, it will only logger for all the function calls of users.js file	
+
+
+
+31. Why postman is important for back-end api development:
+	* It is api-client testing tool
+	* Browser's URL could only test GET method
+	* Inside Browser's javascript could call: GET, PUT. POST, DELETE and all methods, 
+          but, still need a testing tool to test all api, before use.
+        * Inside postman, you could:
+		set methods 
+		parameters
+		security authorization
+		Header
+		Body with raw data, or json, or binary etc...
+		Send json files
+
+32. index.html is the default file that the browser will use when your refresh your URL: localhost:3000
+	or index.html just like main() -- the entry-point for the web-site.
+
+33. Instead of use res.render("index", { text: "World"}) to serve the static html file: index.ejs to the browser
+    you could also use the following:
+	1. create a public folder
+	2. copy the index.html file in it
+	3. Add this line in server.js file
+		app.use(express.static("public"))  # it automatically upload the index.html file into the browser source area when needed
+	 					   # Because, it is named index.html, so, browser will use it automatically 
+
+34. line app.use(express.static("public")) 
+	It means every thing inside the folder, could be refers in your browser, if you need to use, it will uploaded
+        Because, they could be found. Else, if not have this line, it will get a 404 error - file not found.
+
+35. To change router.get('/new', (req, res) => {})   to render a html file with form
+	router.get('/new', (req, res) => {
+	    //res.send("User New Form");
+	    res.render("users/new", {firstName: "Testguo", lastName: "TestWong"})
+	});    
+
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <title>Document</title>
+	</head>
+	<body>
+	    <form action="/users" method="POST">
+		<label>First Name
+		  <input type="text" name="firstName" value="<%= locals.firstName %>" />
+		</label>
+		<label>Last Name
+		  <input type="text" name="lastName" value="<%= locals.lastName %>" />
+		</label>
+		<button type="submit">Submit</button>
+	      </form>
+	</body>
+	</html>
+
+36. What has been done under the hood of when I click Submit button in FORM?
+
+	In Client-Side:
+	1. FORM is a special HTML that it will collects user input data in Browser and submit back to the web-server.
+	2. When you click: submit button, the browser when trigger the form action="/users" with method=POST
+	3. All the input name and value ( name="firstName" value="<%= locals.firstName %>" /> ) will to send in as parameter
+	
+	In server-side:
+	4. first middleware: app.use(express.urlencoded({extended: true}))  to help the pass-in parameters inserted into the req object
+	5. Now, api function call will receive this incoming api-call, with the reg object contains the user pass-ed in parameters.
+
+37. While client in browser's html form could call the-server's api function, Yet, inside the server api, could also call another api
+    by using redirect 
+
+	res.redirect(`/users/${users.length - 1}`)   # to redirect to another api: 
+
+
+	router.route('/:id')
+	    .get((req, res) => {
+		res.send(`Get User With ID ${req.params.id}`);
+	    })
+
+37. The moddleware: app.use(express.urlencoded({extended: true}))
+	handles pass-in parameter as name and value in string
+ 
+        app.use(express.json()) will handle pass-in name & value in json format
+
+	https://expressjs.com/en/api.html
+	https://www.geeksforgeeks.org/express-js-express-json-function/
+
