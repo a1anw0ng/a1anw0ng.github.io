@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(to right, orange, red, orange);
+            height: 10px;
+        }
+        .footer {
+            background: linear-gradient(to right, limegreen, yellow, limegreen);
+            height: 10px;
+        }
+        .contact-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-container h1 {
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .contact-info p {
+            margin: 10px 0;
+        }
+        .contact-info a {
+            color: blue;
+            text-decoration: none;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .contact-form button {
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header"></div>
+
+    <div class="contact-container">
+        <h1>Contact</h1>
+
+        <div class="contact-info">
+            <p>
+                <span>&#x1F4CD;</span> San Francisco Bay Area, CA.
+            </p>
+            <p>
+                <span>&#x1F517;</span> GitHub: <a href="https://github.com/a1anw0ng" target="_blank">@a1anw0ng</a>
+            </p>
+            <p>
+                <span>&#x2709;</span> Email: alan.j.wong@columbia.edu
+            </p>
+            <p>
+                <span>&#x1F465;</span> LinkedIn: <a href="https://linkedin.com/in/alanwong11" target="_blank">linkedin.com/in/alanwong11</a>
+            </p>
+        </div>
+
+        <h2>Let's get in touch. Send me a message:</h2>
+
+
+        <form class="contact-form" action="https://formspree.io/f/xyzzbpva" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" placeholder="Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+
+
+
+
+
+
+    </div>
+
+    <div class="footer"></div>
+
+
+
+    
+
+
+
+</body>
+</html>
