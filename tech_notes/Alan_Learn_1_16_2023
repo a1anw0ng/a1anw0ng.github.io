@@ -1,0 +1,106 @@
+
+# this could could talk who is ssh into your computer:
+w
+
+pi@alan1:~ $ w
+ 00:13:29 up  2:28,  4 users,  load average: 0.04, 0.03, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+pi       tty1     -                21:40    2:56m  0.20s  0.06s -bash
+pi       tty7     :0               21:40    2:56m 29.45s  0.45s /usr/bin/lxsession -s LXDE-pi -e LXDE -w openbox-lxde-pi
+pi       pts/1    100.83.224.128   23:54   15:48   0.05s  0.05s -bash
+pi       pts/2    192.168.0.116    23:47    1.00s  0.10s  0.03s w
+pi@alan1:~ $ 
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+# This is the most important networking command to know
+# It talks you all the network connections on your computer
+
+sudo netstat -anpt
+
+
+pi@alan1:~ $ sudo netstat -anpt
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      579/sshd: /usr/sbin    # ssh server
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      7652/cupsd             # Internet Printing Protocol
+tcp        0      0 0.0.0.0:5900            0.0.0.0:*               LISTEN      563/vncserver-x11-c    # vncserver
+tcp        0      0 100.90.132.81:52825     0.0.0.0:*               LISTEN      636/tailscaled         # tailscale server
+	The above 4 entries are all the IPv4 servers, each are up and running and waiting for client to call
+	* please note: each specific port maps to a specific protocol in networking 
+	The Key word: LISTEN  -- means server is up and running and waiting for connection
+
+
+tcp        0      0 127.0.0.1:42677         127.0.0.1:48246         ESTABLISHED 1056/vncserverui    
+tcp        0      0 127.0.0.1:48246         127.0.0.1:42677         ESTABLISHED 563/vncserver-x11-c 
+
+tcp        0      0 100.90.132.81:22        100.83.224.128:57760    ESTABLISHED 7371/sshd: pi [priv 
+tcp        0      0 192.168.0.24:22         192.168.0.116:41728     ESTABLISHED 7005/sshd: pi [priv 
+	The above 4 entries show that those are the ESTABLISHED network connections 
+	If both IP address are local IP address: 127.0.0.1, then, it is network connection between 2 processes
+	
+	If one if the IP address is from outside, then, this is a network connnection with the outside world
+	
+	The Key word: ESTABLISHED -- means current a client and server connection has been established, and communicating
+
+
+tcp6       0      0 fd7a:115c:a1e0:ab:52825 :::*                    LISTEN      636/tailscaled      
+tcp6       0      0 :::22                   :::*                    LISTEN      579/sshd: /usr/sbin 
+tcp6       0      0 ::1:631                 :::*                    LISTEN      7652/cupsd          
+tcp6       0      0 :::5900                 :::*                    LISTEN      563/vncserver-x11-c 
+	The above 4 entries are for IPv6
+
+
+tcp6       0      0 2601:646:8800:6b0:51324 2607:f740:0:3f::44c:443 ESTABLISHED 636/tailscaled      
+tcp6       0      0 2601:646:8800:6b0:40204 2a05:d014:386:201:72:80 ESTABLISHED 636/tailscaled      
+tcp6       0      0 2601:646:8800:6b0:50806 2001:4860:4860::888:443 TIME_WAIT   -                   
+tcp6       0      0 2601:646:8800:6b0:41250 2600:1f18:429f:9305:443 ESTABLISHED 636/tailscaled      
+pi@alan1:~ $ 
+
+
+* please note: each specific port maps to a specific protocol in networking 
+	ex:
+	http  	=> :80
+	https 	=> 443
+	ssh 	=> :22
+	ftp 	=> :21
+	vnc	=> :5900
+	tailscal => :52825
+	
+	All above are application layer protocol
+
+
+TCP/IP -- Protocal Suite
+	TCP -- connection protocol
+		It require 3-way hardshaking
+	
+	UDP -- connection less
+	
+xxxd  -- it means it is a deamon  (it is a server)	
+
+PID -- Process ID
+
+What is difference between a program-file and a process?
+    program-file -- this is a program before it runs
+    process  -- once a program-file executed and running, it is call a process.
+    
+# To see all the process in your computer:
+	ps -aux
+	
+# To count how many process are in the list:   <command> | wc -l
+	ps -aux | wc -l
+
+	
+# What needs to have in order for 2 computers or 2 process to communication?
+	IP address
+		Local IP address   127.0.0.1
+		Remote IP address 100.83.224.128
+	Port (or Protocal)
+		http  	=> :80
+		https 	=> 443
+		ssh 	=> :22
+		ftp 	=> :21
+		vnc	=> :5900
+		tailscal => :52825
+			

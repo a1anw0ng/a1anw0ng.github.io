@@ -1,0 +1,33 @@
+
+1. RaspberryPi text-base configuration tool:
+	sudo raspi-config
+	
+	You could use in terminal or ssh-in
+	
+	How to use:
+		Arrow-up   -- move up an entry
+		arrow-down -- move down an entry
+		tab -- jump between session
+		enter -- get in 1 level ( or tab-move-to select, and click enter)
+		Esc -- get out 1 level  ( or tab-move-to back, and click enter)
+		
+		
+cat  to view a file
+
+
+pipe and grep contrSize
+
+
+cat DGO_Study | grep "contrSize= 60"
+
+cat <file-name> | grep contrSize
+
+
+cat DGO_Study | grep contrSize -n   # to also show the line number
+
+cat DGO_Study | grep -i contrSize -n  # to filter with case-sensitive
+
+==============
+find / -type f -exec grep -H 'text-to-find-here' {} \;
+
+https://www.plesk.com/blog/various/find-files-in-linux-via-command-line/
