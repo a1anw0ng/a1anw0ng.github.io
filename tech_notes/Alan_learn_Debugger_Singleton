@@ -1,0 +1,27 @@
+
+entry point:
+	main()
+
+Best way to see the scope's of variables are through debugger:
+
+Debugger runs the same path as a normal program running, except that
+	Normal run is very fast
+	Debugger slows it down, you could set break points to stop the running of a program
+        to check on the variable in that line and the scoping variables in that line.
+
+Actions for Debugger:
+	Set break point at a line
+	start debug: F11
+	Step-over: F6
+	Step-in: F5
+	Resume (or continue the running): F8
+	Terminate: Ctrl+F2
+
+===========================
+Singleton:
+
+In object-oriented programming, a singleton class is a class that can have only one object (an instance of the class) at a time.
+
+https://www.geeksforgeeks.org/singleton-class-java/
+	
+	
