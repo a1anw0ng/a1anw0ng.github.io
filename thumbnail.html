@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Travel Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Carousel container */
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            transition: transform 0.5s ease-in-out;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .left-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .right-column {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #009688;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .reference-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reference-links ul li {
+            margin: 5px 0;
+        }
+
+        .reference-links ul li a {
+            color: #009688;
+            text-decoration: none;
+        }
+
+        .reference-links ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .thumbnail {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        /* Carousel navigation buttons */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <!-- Slide -->
+        <div class="carousel-slide">
+            <div class="left-column">
+                <section>
+                    <h2 class="section-title">About My Travels</h2>
+                    <p>
+                        I’ve traveled to some of the most amazing places around the world! This page highlights some of my favorite destinations, complete with a gallery of memories and useful links for your travel inspiration.
+                    </p>
+                </section>
+
+                <section class="reference-links">
+                    <h2 class="section-title">Useful Travel Resources</h2>
+                    <ul>
+                        <li><a href="https://www.lonelyplanet.com" target="_blank">Lonely Planet</a></li>
+                        <li><a href="https://www.tripadvisor.com" target="_blank">TripAdvisor</a></li>
+                        <li><a href="https://www.airbnb.com" target="_blank">Airbnb</a></li>
+                        <li><a href="https://www.skyscanner.net" target="_blank">Skyscanner</a></li>
+                        <li><a href="https://www.nationalgeographic.com/travel" target="_blank">National Geographic Travel</a></li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="right-column">
+                <section>
+                    <h2 class="section-title">Travel Memories</h2>
+                    <div class="gallery">
+                        <!-- Replace these img src with your own images -->
+                        <img src="https://via.placeholder.com/150" alt="Travel 1" class="thumbnail">
+                        <img src="https://via.placeholder.com/150" alt="Travel 2" class="thumbnail">
+                        <img src="https://via.placeholder.com/150" alt="Travel 3" class="thumbnail">
+                        <img src="https://via.placeholder.com/150" alt="Travel 4" class="thumbnail">
+                        <img src="https://via.placeholder.com/150" alt="Travel 5" class="thumbnail">
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <button class="carousel-btn prev">&lt;</button>
+    <button class="carousel-btn next">&gt;</button>
+
+    <div class="modal" id="modal">
+        <span class="close" id="close">&times;</span>
+        <img src="" alt="Enlarged Photo" id="modalImage">
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const modal = document.getElementById('modal');
+        const modalImage = document.getElementById('modalImage');
+        const closeBtn = document.getElementById('close');
+
+        let currentSlide = 0;
+
+        const updateSlide = () => {
+            slides.forEach((slide, index) => {
+                slide.style.transform = `translateX(-${currentSlide * 100}%)`;
+            });
+        };
+
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide > 0) ? currentSlide - 1 : slides.length - 1;
+            updateSlide();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide < slides.length - 1) ? currentSlide + 1 : 0;
+            updateSlide();
+        });
+
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                modalImage.src = thumbnail.src;
+                modal.style.display = 'flex';
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

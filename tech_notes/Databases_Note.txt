@@ -1,0 +1,34 @@
+Data-Path:
+
+1. Collect data (a lot of data)
+
+2. Saved in file or Aws S3:
+
+3. Organize all the data 
+	Use Schema
+
+4. DataBases:
+	a. SQL Database
+	b. MongoDb
+	c> redis-db
+
+4. Query and using them.
+
+======
+In latest technology:
+
+When the data is getting bigger and bigger, database could not store it.
+
+Now, there is a concept called "BIG DATA"
+Which needs a cluster of computers to store all the data
+
+Clouera -- company for big data.
+
+Hapoop -- When you query the data, it has to get from the disk (slow)
+
+Spark -- When you query the data, it don't have to get from the disk, just from the memory. (fast)
+
+=========
+Machine learning -- 
+
+AI 

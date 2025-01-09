@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="en-us" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Jonathan Xu</title>
+
+  <!-- metadata-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Jonathan Xu">
+  <meta name="description" content="Jonathan Xu's Portfolio">
+  <meta name="image" content="https://jonathan-xu.com/images/screenshot-portfolio.png">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Jonathan Xu">
+  <meta itemprop="description" content="Jonathan Xu's Portfolio">
+  <meta itemprop="image" content="https://jonathan-xu.com/images/screenshot-portfolio.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="Jonathan Xu's Portfolio">
+  <meta name="twitter:title" content="Jonathan Xu">
+  <meta name="twitter:description" content="Jonathan Xu's Portfolio">
+  <meta name="twitter:image:src" content="https://jonathan-xu.com/images/screenshot-portfolio.png">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Jonathan Xu">
+  <meta name="og:description" content="Jonathan Xu's Portfolio">
+  <meta name="og:image" content="https://jonathan-xu.com/images/screenshot-portfolio.png">
+  <meta name="og:url" content="https://jonathan-xu.com">
+  <meta name="og:site_name" content="Jonathan Xu">
+  <meta name="og:locale" content="en_US">
+  <meta name="og:type" content="website">
+
+  <link rel="canonical" href="https://jonathan-xu.com" />
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="css/button.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./scripts/scroll.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+    integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    function onResize(element, callback) {
+      var height = element.clientHeight;
+      var width = element.clientWidth;
+
+      return setInterval(function () {
+        if (element.clientHeight != height || element.clientWidth != width) {
+          height = element.clientHeight;
+          width = element.clientWidth;
+          callback();
+        }
+      }, 500);
+    }
+  </script>
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-27G33Q7E1G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-27G33Q7E1G');
+  </script>
+
+  <!-- metadata -->
+  <script type='application/ld+json'>
+    {
+      "@context": "http://www.schema.org",
+      "@type": "person",
+      "name": "Jonathan Xu",
+      "jobTitle": "Software Engineer",
+      "url": "https://jonathan-xu.com",
+      "address": {
+         "@type": "PostalAddress",
+         "addressLocality": "San Francisco Bay Area",
+         "addressRegion": "CA"
+      }
+    }
+    </script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-entry navbar-entry-logo">
+      <div class="wrap">
+        <img src="images/favicon.png" class="logo-icon" alt="Logo">
+        <a href="#home" class="navbar-text-gradient">Jonathan Xu</a>
+      </div>
+    </div>
+    <label for="hamburger" class="navbar-entry navbar-show-small-screen">&#9776;</label>
+    <input type="checkbox" id="hamburger" style="display:none;" class="ham-check" />
+    <div class="navbar-entry navbar-hide-small-screen">
+      <a href="resume/XuJonathan2024.pdf" class="navbar-link" rel="noopener" target="_blank">Resume</a>
+    </div>
+    <div class="navbar-entry navbar-hide-small-screen">
+      <a href="#about" class="navbar-link">About</a>
+    </div>
+    <div class="navbar-entry navbar-hide-small-screen">
+      <a href="#projects" class="navbar-link">Projects</a>
+    </div>
+    <div class="navbar-entry navbar-hide-small-screen">
+      <a href="#contact" class="navbar-link">Contact</a>
+    </div>
+
+
+  </nav>
+
+  <div class="landing" id="home">
+    <div class="center-container">
+      <canvas id="canvas" class="sph-temp"></canvas> <!-- sphere, sphere-overlay depreciated-->
+      <script src="scripts/animated-sphere.js"></script>
+
+    </div>
+    <div class="overlay-container">
+      <div class="header-box">
+        <div class="subtitle entry">
+          Hello World!
+        </div>
+        <div class="title entry">
+          I'm Jonathan Xu.
+        </div>
+        <div class="description entry">
+          a Computer Science major at UCLA, focused on dreaming up and bringing to life, projects with
+          <span style="font-weight: 600;">impact</span>.
+        </div>
+        <br>
+        <div class="buttons">
+          <a href="resume/XuJonathan2024.pdf" class="btn effect01" rel="noopener" target="_blank"><span>Resume</span></a>
+          <a href="#contact" class="btn effect01" target="_self"><span>Contact</span></a>
+        </div>
+        <div class="button-shortcut">
+          <a href="https://github.com/ViciousCupcake" class="fa fa-github fa-2x icon icon-white"
+            style="text-decoration:none;" rel="noopener" target="_blank"></a>
+          <a href="#contact" class="fa fa-envelope fa-2x icon icon-white" style="text-decoration:none;" rel="noopener"
+            target="_blank"></a>
+          <a href="https://www.linkedin.com/in/xujonathan" class="fa fa-linkedin-square fa-2x icon icon-white"
+            style="text-decoration:none;" rel="noopener" target="_blank"></a>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="hide-for-small-screen">
+      <div class="quote">
+        "There are no traffic jams on the extra mile" &horbar; Zig Ziglar
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <span id="about">&#8203;</span>
+    <div class="section">
+      <div class="section-header">
+        About
+      </div>
+      <div class="about-box">
+        <div class="about-entry">
+          <div class="about-image-outer">
+            <div class="about-image-inner">
+              <img src="images/about/about-1.png" class="about-image" alt="Picture of Tablets">
+            </div>
+          </div>
+        </div>
+        <div class="about-entry">
+          <div class="about-text">Hello! I'm Jonathan, a Computer Science major at
+            <a href="https://ucla.edu" rel="noopener" target="_blank" class="about-hyperlink">UCLA</a>.
+            This past summer, I've been working at
+            <a href="https://cloud.google.com/" rel="noopener" target="_blank" class="about-hyperlink">Google Cloud</a>. Specifically, I've been working cross-functionally with other teams to instantiate <b>CMEK-compliant encrypted SQL databases</b> for Generative AI applications. I've also been working with Map-Reduce frameworks to optimize the performance of <b>Big Data</b> applications!
+          </div>
+        </div>
+      </div>
+      <div class="about-box flex-reverse">
+        <div class="about-entry">
+          <div class="about-image-outer">
+            <div class="about-image-inner">
+              <img src="images/about/about-2.png" class="about-image" alt="Picture of Computer">
+            </div>
+          </div>
+        </div>
+        <div class="about-entry">
+          <div class="about-text">
+            Last year at <a href="https://ads.google.com/home/" rel="noopener" target="_blank" class="about-hyperlink">Google Ads</a>, I worked on serving real-time advertisements to millions of users every second! Prior to Google, I created <a href="https://en.wikipedia.org/wiki/Machine_learning" rel="noopener" target="_blank" class="about-hyperlink">Machine Learning algorithms</a> for LiDAR sensor calibration at <a href="https://cepton.com" rel="noopener" target="_blank" class="about-hyperlink">Cepton</a>, to be used with self-driving cars.
+            <br><br>
+            Right now, I'm researching with using <a href="https://en.wikipedia.org/wiki/Natural_language_processing" rel="noopener" target="_blank" class="about-hyperlink">Natural Language Processing</a> (NLP) to parse instructions for administering medication, under <a href="https://www.uclahealth.org/providers/li-zhou" rel="noopener" target="_blank" class="about-hyperlink">Dr. Zhou</a> and <a href="https://web.cs.ucla.edu/~korf/" rel="noopener" target="_blank" class="about-hyperlink">Dr. Korf</a>!
+            <!-- We've integrated this with the <a href="https://www.nlm.nih.gov/research/umls/rxnorm/index.html" rel="noopener" target="_blank" class="about-hyperlink">National Library of Medicine</a>, and will publish our findings to a peer-reviewed journal.  -->
+          </div>
+        </div>
+      </div>
+      <div class="about-box">
+        <div class="about-entry">
+          <div class="about-image-outer">
+            <div class="about-image-inner">
+              <img src="images/about/about-3.png" class="about-image" alt="Picture of Teamwork">
+            </div>
+          </div>
+        </div>
+        <div class="about-entry">
+          <div class="about-text">
+            Outside of work, I love hiking and exploring the great outdoors! Furthermore, I love meeting new people and
+            learning something new!
+            <br><br>
+            I'm currently seeking a full-time role starting Summer 2024, so if I sound like a great match for
+            your team,
+            <a href="#contact" class="about-hyperlink">let's get in touch!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <hr class="gradient-purple" id="projects">
+    <div class="section">
+      <div class="section-header">
+        <div>Projects</div>
+        <div class="section-subheader">
+          Hover over each project for more information!
+        </div>
+      </div>
+
+      <div class="project-wrapper">
+        <!-- Slides -->
+        <div class="project-entry">
+          <div class="project-slide">
+            <a href="https://bruinwalk.com" style="text-decoration:none;" rel="noopener" target="_blank">
+              <img class="project-card-image" src="images/projects/bruinwalk.png" alt="bruinwalk Logo">
+              <p class="project-subtitle">bruinwalk</p>
+            </a>
+            <a href="https://bruinwalk.com" style="text-decoration:none;" rel="noopener" target="_blank">
+              <div class="project-content project-text">
+                <div class="project-text-wrapper">
+                  UCLA's most popular professor and apartment review platform, with over 50k average
+                  monthly users!
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="project-entry">
+          <div class="project-slide">
+            <a href="https://chess.jonathan-xu.com" style="text-decoration:none;" rel="noopener" target="_blank">
+              <img class="project-card-image" src="images/projects/chess-ai.png" alt="Chess AI Logo">
+              <p class="project-subtitle">&alpha;-&beta; Chess AI</p>
+            </a>
+            <a href="https://chess.jonathan-xu.com" style="text-decoration:none;" rel="noopener" target="_blank">
+              <div class="project-content project-text">
+                <div class="project-text-wrapper">
+                  An online Chess AI Opponent, implementing the Minimax Algorithm with &alpha;-&beta;
+                  pruning, implemented using React.js and deployed on Heroku.
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="project-entry">
+          <div class="project-slide">
+            <a href="https://github.com/ViciousCupcake/balena-UCLA-Class-Status-Checker" style="text-decoration:none;"
+              rel="noopener" target="_blank">
+              <img class="project-card-image" src="images/projects/class-notifier.png"
+                alt="UCLA Class Status Checker Logo">
+              <p class="project-subtitle">UCLA Class Status Checker</p>
+            </a>
+            <a href="https://github.com/ViciousCupcake/balena-UCLA-Class-Status-Checker" style="text-decoration:none;"
+              rel="noopener" target="_blank">
+              <div class="project-content project-text">
+                <div class="project-text-wrapper">
+                  A remote class notifier, implementing RESTful APIs, to send a push notification to your
+                  smartphone when a class has open availability.
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="project-entry">
+          <div class="project-slide">
+            <a href="https://github.com/ViciousCupcake/cigarette" style="text-decoration:none;" rel="noopener"
+              target="_blank">
+              <img class="project-card-image" src="images/projects/cigarette-cf.png" alt="cigarette.cf Logo">
+              <p class="project-subtitle">cigarette.cf</p>
+            </a>
+            <a href="https://github.com/ViciousCupcake/cigarette" style="text-decoration:none;" rel="noopener"
+              target="_blank">
+              <div class="project-content project-text">
+                <div class="project-text-wrapper">
+                  A convenient web app, sourcing data from the IQAir and ipgeolocation APIs to display
+                  your local air quality in units of 'cigarette equivalency.'
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="project-entry">
+          <div class="project-slide">
+            <a href="https://github.com/ViciousCupcake/aMAZEingVisualizer" style="text-decoration:none;" rel="noopener"
+              target="_blank">
+              <img class="project-card-image" src="images/projects/amazeing-visualizer.png"
+                alt="aMAZEing Visualizer Logo">
+              <p class="project-subtitle">aMAZEing Visualizer</p>
+            </a>
+            <a href="https://github.com/ViciousCupcake/aMAZEingVisualizer" style="text-decoration:none;" rel="noopener"
+              target="_blank">
+              <div class="project-content project-text">
+                <div class="project-text-wrapper">
+                  A standalone maze-solving algorithm visualizer, displaying algorithms such as
+                  Depth-First-Search (DFS), coded as a desktop application through Java Swing.
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="project-entry">
+          <div class="project-slide">
+            <a>
+              <img class="project-card-image" src="images/projects/jnotepad.png" alt="jNotepad Logo">
+              <p class="project-subtitle">jNotepad</p>
+            </a>
+            <a>
+              <div class="project-content project-text">
+                <div class="project-text-wrapper">
+                  A lightweight, full-featured, and portable notepad application coded in Java Swing. This
+                  works right out of the box, with no installation necessary.
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+        <div class="project-entry">
+          <div class="project-slide">
+            <a>
+              <img class="project-card-image" src="images/projects/weather-app.png" alt="Weather App Logo">
+              <p class="project-subtitle">Weather App</p>
+            </a>
+            <a>
+              <div class="project-content project-text">
+                <div class="project-text-wrapper">
+                  A user-friendly Java Swing Desktop Application which interfaces with the OpenWeatherMap,
+                  TimeZoneDB, and HERE Maps APIs and visually communicates weather information in a
+                  user-defined location.
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <hr class="gradient-orange" id="contact">
+    <div class="section">
+      <div class="section-header">
+        Contact
+      </div>
+      <div class="contact-region">
+        <div class="contact-text" style="text-align: left;">
+          <p><i class="fa fa-map-marker fa-fw fa-2x icon icon-black"></i> San Francisco Bay Area, CA.</p>
+          <p>
+            <a href="https://github.com/ViciousCupcake" rel="noopener" target="_blank" style="text-decoration: none;">
+              <i class="fa fa-github fa-fw fa-2x icon icon-black"></i>
+            </a> GitHub:
+            <a href="https://github.com/ViciousCupcake" rel="noopener" target="_blank"
+              style="color: black">@ViciousCupcake</a>
+          </p>
+          <p><i class="fa fa-envelope fa-fw fa-2x icon icon-black"> </i> Email:
+            &#91;&#70;&#105;&#114;&#115;&#116;&#78;&#97;&#109;&#101;&#76;&#97;&#115;&#116;&#78;&#97;&#109;&#101;&#93;&#64;&#117;&#99;&#108;&#97;&#46;&#101;&#100;&#117;
+          </p>
+          <p>
+            <a href="https://www.linkedin.com/in/xujonathan" rel="noopener" target="_blank"
+              style="text-decoration: none;">
+              <i class="fa fa-linkedin-square fa-fw fa-2x icon icon-black"></i>
+            </a> Linkedin:
+            <a href="https://www.linkedin.com/in/xujonathan" rel="noopener" target="_blank"
+              style="color: black">linkedin.com/in/xujonathan</a>
+          </p>
+        </div><br><!-- http://www.wbwip.com/wbw/emailencoder.html-->
+        <p class="contact-text">Let's get in touch. Send me a message:</p>
+        <div class="test">
+          <form action="https://formspree.io/mpzyvovv" method="POST">
+            <div class="contact-center"><input class="contact-small-box contact-box" type="text" placeholder="Name"
+                required name="Name"></div>
+            <p><input class="contact-small-box contact-box" type="email" placeholder="Email" required name="_replyto"></p>
+            <p><input class="contact-small-box contact-box" type="text" placeholder="Subject" name="_subject">
+            </p>
+            <p><input type="text" name="_gotcha" placeholder="Password" class="contact-small-box contact-box"
+                style="display:none !important" tabindex="-1" autocomplete="off"></p>
+            <p><textarea class="contact-small-box contact-box contact-textarea" placeholder="Message" required
+                name="Message" rows="5"></textarea></p>
+            <div class="contact-submission">
+              <button class="contact-box button" type="submit" style="color: black">
+                <i class="fa fa-paper-plane"></i> Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr class="gradient-green">
+    <footer>
+      <p>
+        Coded with <i class="fa fa-heart"></i> by Jonathan Xu <br>
+        &copy; Copyright 2023. All rights reserved.<br>
+      </p>
+    </footer>
+  </div>
+</body>

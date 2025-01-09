@@ -1,0 +1,122 @@
+
+In basic data type:
+
+	1. variable -- is a box (or reference to a box)
+	2. value  -- is the data that you put in the box
+	3. There different type of values inside the box
+		1> boolean
+		2> integer
+		3> string
+		4> float
+
+
+=========================================
+In data structure:
+	list
+
+	1. variable -- is a list (or a group ) of boxes (or reference to a box)
+			  -----------------------------
+	2. value -- is the data that you put in the box
+	3. There different type of values inside the box
+		1> boolean
+		2> integer
+		3> string
+		4> float
+
+	4. Because of a list (or a group ) of boxes:
+		* We need a way to distiniguish each individual boxes, so, we could reference to it.
+		* The is why index are introduced
+		* Charactistic of index are:
+		   1. Start from 0 (or called 0-based)
+  		   2. So, end-index will be the size of list or array - 1
+		   3. Increased one by one  (best for loops to use)
+ 		   4. All indexes are in order
+		   5. Reference to a specific box in the list:
+			variable-name[5]
+		   6. While indexes are order and unique, but, values are not need to be ordered and unique
+												     ======
+			
+	5. For modern languages: (python, javascript, etc)
+		The value of the list boxes could contains different data type in a single list.
+
+	6. For not-modern languages: (java, C, C++ etc)
+		The value of the list boxes could only contains 1 data type in a single list.
+
+
+
+===========================================================
+
+	dictionary:
+
+	1. variable -- is a list (or a group ) of boxes (or reference to a box)
+			  -----------------------------
+	2. value -- is the data that you put in the box
+	3. There different type of values inside the box
+		1> boolean
+		2> integer
+		3> string
+		4> float
+
+	4. Because of a list (or a group ) of boxes:
+		* We need a way to distiniguish each individual boxes, so, we could reference to it.
+		* Up to this point, all the above are SAME as list
+
+		* The is why keys are introduced
+		* Instead of use index, we used an unique string to distinguish each boxes in the dictionary
+		* Unlike list, there is NOT ORDERED
+		* Because NO ORDER, so, there is no specific starting and ending point
+		* Access the boxes:
+			variable-name["key1"]
+
+===========================================================
+	
+	set:
+
+	1. variable -- is a list (or a group ) of boxes (or reference to a box)
+			  -----------------------------
+	2. value -- is the data that you put in the box
+	3. There different type of values inside the box
+		1> boolean
+		2> integer
+		3> string
+		4> float
+
+	4. Because of a list (or a group ) of boxes:
+		* We need a way to distiniguish each individual boxes, so, we could reference to it.
+		* The is why index are introduced
+		* Charactistic of index are:
+		   1. Start from 0 (or called 0-based)
+  		   2. So, end-index will be the size of list or array - 1
+		   3. Increased one by one  (best for loops to use)
+ 		   4. All indexes are in order
+		   5. Reference to a specific box in the list:
+			variable-name[5]
+	
+		   * Up to this point, all the above are SAME as list
+
+		   6. While indexes are order and unique, values are also have to be UNIQUE, but, values are not need to be ordered 
+
+
+==============================================================
+
+
+Linked-List:
+------------
+
+
+-- one directional Linked-List
+
+-- bi-directional Linked-List
+
+* Linked-List is semi-Out-dated why?
+
+Back at C/C++ and earlier java, Linked-List was the most powerful data structure,
+Until ArrayList was created (Dynamic Array)
+
+Before all data allocated was FIXED in size, you could not change.
+
+Big, large company(facebook, google, etc...) and data structures
+
+static data-size and dynamic data-size
+----------------     -----------------
+

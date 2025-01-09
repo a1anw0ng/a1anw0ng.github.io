@@ -1,0 +1,73 @@
+
+1. Array & method
+	fixed-size
+	same data type
+
+2. ArrayList & method
+	dynamic-size
+	same data type
+
+3. loops (for, while, )
+
+4. 2-d array 
+
+5. 2-d arrayList
+
+6. OOP
+
+
+
+
+Array and arrayList -- dynamic 
+
+Array has same simple methods
+
+arrayList - has more methods
+
+
+
+arr[][]
+
+=====================
+Java or C/C++:
+
+1. declare/define a array variable
+2. inititial a variable 
+3. Now, use...
+
+ex: double[] myList = new double[10];
+    int var1;
+    vari = 5;
+
+ex2: 
+	dataType[] arrayRefVar; 
+	arrayRefVar = new dataType[12];
+
+	dataType[] arrayRefVar = new dataType[12];
+
+ex3:
+	double[] myList = {1.9, 2.9, 3.4, 3.5};
+
+=============
+For arrayList (dynamic array)
+
+
+ArrayList<Integer> arrli = new ArrayList<Integer>(n);
+
+dataType[] arrayRefVar = new dataType[12];
+
+=========
+var1 = 5
+
+list1 = [1,2,"guo"]
+
+myList = [1.9, 2.9, 3.4, 3.5, "alan", true]
+
+
+For Python / Javascript:
+
+	Dynamic-size
+	Dynamic-Type (or Multiple type)
+
+
+
