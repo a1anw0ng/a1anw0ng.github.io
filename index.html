@@ -1,182 +1,825 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Alan Wong</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alan Wong - Project Manager</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <!-- css -->
+    <link rel="stylesheet" href="styles.css">
+
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #001f3f, #1a73e8);
-            color: white;
+
+      ul {
+          list-style-type: none;
+          padding: 0;
+      }
+      
+      .custom-list li {
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          margin: 10px 0;
+          padding: 15px;
+          background: #f9f9f9;
+      }
+      .custom-list li:nth-child(even) {
+          background: #e9e9e9;
+      }
+                
+      a {
+          text-decoration: none;
+      }
+      a span.prefix {
+          color: #1e90ff; /* Lighter blue for "Linux Commands --" */
+          font-weight: bold;
+      }
+      a span.suffix {
+          color: #0056b3; /* Darker blue for the text after "--" */
+          text-decoration: underline;
+      }
+      a:hover span.prefix,
+      a:hover span.suffix {
+          text-decoration: underline;
+      }
+
+
+
+
+
+
+      .header {
+            background: linear-gradient(to right, orange, red, orange);
+            height: 10px;
         }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background: #001f3f;
+        .footer {
+            background: linear-gradient(to right, limegreen, yellow, limegreen);
+            height: 10px;
         }
-        header h1 {
-            font-size: 24px;
-            margin: 0;
+        .contact-container {
+          max-width: 600px;
+          margin: 50px auto;
+          padding: 20px;
+          background: rgba(128, 183, 209, 0.8); /* White with 80% transparency */
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(10px); /* Optional: adds a blur effect to the background */
+          -webkit-backdrop-filter: blur(10px); /* For Safari support */
         }
-        header nav {
-            display: flex;
-            gap: 20px;
+        .contact-container h1 {
+            margin-bottom: 20px;
         }
-        header nav a {
-            color: white;
+        .contact-info {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .contact-info p {
+            margin: 10px 0;
+        }
+        .contact-info a {
+            color: blue;
             text-decoration: none;
-            font-size: 16px;
         }
-        .search-bar {
-            margin-left: auto;
-        }
-        .search-bar input {
-            padding: 5px;
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 14px;
+        }
+        .contact-form button {
+            background-color: orange;
+            color: white;
             border: none;
-            font-size: 16px;
-        }
-        .main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 50px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .profile-card {
-            background: white;
-            color: black;
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 300px;
-            margin: 20px;
-        }
-        .profile-card img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-        .profile-card h2 {
-            margin: 10px 0 5px;
-        }
-        .profile-card p {
-            margin: 5px 0;
-        }
-        .content {
-            max-width: 600px;
-            padding: 20px;
-        }
-        .content h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        .content p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        .buttons a {
-            text-decoration: none;
-            color: white;
-            background: #007bff;
             padding: 10px 20px;
             border-radius: 5px;
-            margin-right: 10px;
-            transition: background 0.3s;
-            font-size: 16px;
+            cursor: pointer;
         }
-        .buttons a:hover {
-            background: #0056b3;
+        .contact-form button:hover {
+            background-color: darkorange;
         }
-        footer {
-            background: #001f3f;
-            color: #ccc;
-            text-align: center;
-            padding: 20px 10px;
-            margin-top: 50px;
-        }
-        footer .footer-content {
-            display: flex;
-            justify-content: space-around;
-            max-width: 1200px;
-            margin: auto;
-            flex-wrap: wrap;
-        }
-        footer .footer-content div {
-            text-align: center;
-            margin: 10px;
-        }
-        footer a {
-            color: #ccc;
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Alan Wong</h1>
-        <nav>
-            <a href="Alan_Wong_Resume.pdf">Resume</a>
-            <a href="#">Projects</a>
-            <a href="contact.html">Contact</a>
-            <a href="#">More</a>
-            <a href="tech_notes.html">Tech Notes</a>
-            <a href="personal_interests.html">About Me</a>
-        </nav>
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
-        </div>
-    </header>
 
-    <main class="main">
-        <div class="profile-card">
-            <img src="profile.jpg" alt="Alan Wong">
-            <h2>Alan Wong</h2>
-            <p>Data Scientist</p>
-            <p>
-                <a href="#">LinkedIn</a> |
-                <a href="#">GitHub</a>
-            </p>
-        </div>
 
-        <div class="content">
-            <h1>Welcome</h1>
-            <p>Empower Your Career with a Standout Resume</p>
-            <div class="buttons">
-                <a href="#">About Me</a>
-                <a href="#">Services</a>
+
+        .big-title {
+          margin-bottom: 100px; /* Adjust the value to control the spacing */
+        }
+
+
+        .image2 img.me2 {
+          width: 70%; /* Adjust the width as needed, e.g., 50% of the container */
+          height: auto; /* Maintains the aspect ratio */
+          max-width: 500px; /* Set a maximum width to prevent it from being too large */
+        }
+
+        .me2 {
+          width: 70%; /* Adjust the width as needed, e.g., 50% of the container */
+          height: auto; /* Maintains the aspect ratio */
+          max-width: 500px; /* Set a maximum width to prevent it from being too large */
+        }
+
+        .button-link {
+          display: inline-block;
+          padding: 12px 18px; /* Add padding for a button-like look */
+          background-color: #007bff; /* Blue background */
+          color: white; /* White text */
+          font-size: 16px; /* Larger font size */
+          text-decoration: none; /* Remove underline */
+          border-radius: 8px; /* Rounded corners */
+          font-weight: bold; /* Bold text */
+          transition: background-color 0.3s ease, font-size 0.3s ease; /* Smooth hover effect */
+        }
+
+        .button-link:hover {
+          background-color: #0056b3; /* Darker blue on hover */
+          font-size: 17px; /* Slightly larger font on hover */
+        }
+
+
+
+  </style>
+
+
+  </head>
+  <body>
+    <nav class="navi">
+      <ul class="navbar-list">
+        <a class = "title" href="#title">
+          <h2>    </h2>
+        </a>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="Alan_Wong_Resume.pdf">Resume</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#intro">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#projects">Projects</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#personal_interest">Personal</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#tech_notes">Tech Notes</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#contact">Contact</a>
+        </li>
+        <a class="bar nav-item">
+          <i class="icon fas fa-bars fa-3x"></i>
+        </a>
+        <a class="close nav-item" href="#">
+          <i class="fas fa-times fa-4x"></i>
+        </a>
+      </ul>
+    </nav>
+
+    <div class="menu">
+      <div class="menu-content">
+        <h3 class="title2">
+          <a class="nav-link" aria-current="page" href="#intro">About</a>
+        </h3>
+        <h3 class="titl2">
+          <a class="nav-link" aria-current="page" href="#projects">Projects</a>
+        </h3>
+        <h3 class="title2">
+          <a class="nav-link" aria-current="page" href="#personal_interest">Personal</a>
+        </h3>
+
+        <h3 class="title2">
+          <a class="nav-link" aria-current="page" href="#tech_notes">Tech Notes</a>
+        </h3>
+
+        <h3 class="title2">
+          <a class="nav-link" aria-current="page" href="#contact">Contact</a>
+        </h3>
+
+
+        <h3 class="title2">
+         
+        </h3>
+      </div>
+    </div>
+
+    <section id = "title">
+      <div class="container1">
+        <div class="wrapper1">
+          <div class="content1">
+            <img class = "datascience" src="Data-Science.jpg" alt="datascience">
+            <div class="big-title">
+              <h1 class = "hello">Alan Wong</h1>
+              <div class="rotating-words">
+                <h2 class="rotating-text">Data Scientist</h2>
+              </div>
             </div>
-            <p>Hi! My name is Alan, and I am an M.S. student at Columbia University studying Data Science. I was drawn to the data science community due to the analysis of large amounts of data that is used in creating informed decisions about fields ranging from the business landscape to higher academia.</p>
+          </div>
         </div>
-    </main>
+        <div class="next-button1">
+          <a class = "down-arrow" href="#intro">
+            <i class="fas down-arrow-icon fa-chevron-down"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id = "intro">
+      <div class="container2">
+        <div class="wrapper2">
+          <div class="content2">
+            <div class="title2">
+              <h2 class="welcome">hi, i'm alan.</h2>
+            </div>
+            <div class="description2">
+              <p> Hi! I am a Data Science student at Columbia University 
+                with experience in analyzing large datasets to uncover 
+                insights and drive informed decision-making across fields 
+                like business and academia. I aim to contribute to projects 
+                that leverage data to solve complex problems and create 
+                meaningful impact. In my spare time, I enjoy exploring 
+                innovative applications of data science and expanding my 
+                technical expertise.</p>
+            </div>
+          </div>
+          <div class="image2">
+            <img class="me2" src="alam.JPG" alt="me">
+          </div>
+        </div>
+        <div class="next-button2">
+          <a class = "down-arrow" href="#projects">
+            <i class="fas down-arrow-icon fa-chevron-down"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id = "projects">
+      <div class="container3">
+        <div class="title3">
+          <h1>Projects / Publications</h1>
+        </div>
+        <div class="content3">
+          <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carousel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carousel1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carousel1" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#carousel1" data-bs-slide-to="4" aria-label="Slide 5"></button>
+              <button type="button" data-bs-target="#carousel1" data-bs-slide-to="5" aria-label="Slide 6"></button>
+              <button type="button" data-bs-target="#carousel1" data-bs-slide-to="6" aria-label="Slide 7"></button>
+            </div>
+            <div class="carousel-inner">
+
+              <div class="carousel-item active">
+                <div class="project1">
+                  <div class="content3-1">
+
+                    <div class="left-column">
+                      <section>
+                        <div class="title3-1">
+                          <h2 class="job">Stanford University - SHTEM Program</h2>
+                          <h3>Unveiling The Orchestra: A Novel System For Audio Separation And Instrument Identification In Musical Recordings</h3>
+                        </div>
+                        <div class="description3-1">
+                          <li>Used the the Fast Fourier Transform (FFT) to develop an efficient and effective model to detect</li>
+                          <li>categorize, and separate multiple audio sources based on relative magnitudes of harmonic frequency peaks</li>
+                        </div>
+                      </section>
+                      <br>
+                      <section class="reference-links">
+                          <h2 class="section-title">Publication Link</h2>
+                          <ul>
+                            <li>
+                              <a href="https://theinformaticists.wordpress.com/2023/10/09/unveiling-the-orchestra-a-novel-system-for-audio-separation-and-instrument-identification-in-musical-recordings/" 
+                                 target="_blank" 
+                                 class="button-link">
+                                 View Publication
+                              </a>
+                            </li>
+                          </ul>
+                        </section>
+                      </div>
+  
+                    </div>
+                  <div class="image3-1">
+                    <img class="pic" src="audio_and_instrument.png" alt="me">
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="project1">
+                  <div class="content3-1">
+
+                    <div class="left-column">
+                      <section>
+                        <div class="title3-1">
+                          <h2 class="job">Stanford University - SHTEM Program</h2>
+                          <h3>Differences in Autonomous and Human Driving</h3>
+                        </div>
+                        <div class="description3-1">
+                          <li>Executed coordinate differencing and spline interpolation to understand lane-keeping behavior in autonomous vehicles</li>
+                          <li>Utilized Python and Jupyter Notebook to run detailed data analyses on Waymo and Lyft autonomous vehicle datasets</li>
+                          <li>Co-authored paper detailing three major driving patterns of autonomous vehicles for user practicality and efficiency</li>
+                        </div>
+                      </section>
+                      <br>
+                      <section class="reference-links">
+                        <h2 class="section-title">Publication Link</h2>
+                        <ul>
+                          <li>
+                            <a href="https://theinformaticists.wordpress.com/2020/08/25/fundamental-differences-between-the-driving-patterns-of-humans-and-autonomous-vehicles/" 
+                                target="_blank" 
+                                class="button-link">
+                                View Publication
+                            </a>
+                          </li>
+                        </ul>
+                      </section>
+
+                    </div>
+
+                  </div>
+                  <div class="image3-1">
+                    <img class="pic" src="autonomous_driving.jpg" alt="me">
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="project1">
+                  <div class="content3-1">
+                    <div class="left-column">
+                      <section>
+                        <div class="title3-1">
+                          <h2 class="job">UCLA Project</h2>
+                          <h3>Predicting the Hourly Average Sensor Response for Ozone</h3>
+                        </div>
+                        <div class="description3-1">
+                          <li>Created an optimal regression model to describe the relationship between ozone sensor response and environmental factors</li>
+                          <li>Performed multiple linear regression analysis on air quality data to assess the impact of various explanatory variables</li>
+                          <li>Created and insightfully interpreted diagnostic plots of the model to formulate informed conclusions about given variables</li>
+                        </div>
+                      </section>
+                      <br>
+                      <section class="reference-links">
+                        <h2 class="section-title">Paper Link</h2>
+                        <ul>
+                          <li>
+                            <a href="Statistics101A_FinalProject.pdf" 
+                              target="_blank" 
+                              class="button-link">
+                              View PDF Document
+                            </a>
+                          </li>
+                        </ul>
+                      </section>
+                    </div>
+
+                  </div>
+                  <div class="image3-1">
+                    <img class="pic" src="air_quality_ozone.png" alt="me">
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="project1">
+                  <div class="content3-1">
+
+                    <div class="left-column">
+                      <section>
+
+                        <div class="title3-1">
+                          <h2 class="job">UCLA Project</h2>
+                          <h3>Societal and Environmental Impacts of Air Traffic</h3>
+                        </div>
+                        <div class="description3-1">
+                          <ul>
+                            <li>Enhanced two maps of geospatial data with QGIS to show how air pollution impacts communities surrounding airports</li>
+                            <li>Fine-tuned visualizations of air travel discrimination with Tableau to reflect social dynamics influencing travel decisions</li>
+                            <li>Refined website expanding upon two disproportionate effects of air traffic on marginalized communities and environment</li>
+                          </ul>
+                        </div>
+
+                      </section>
+                      <br>
+                      <section class="reference-links">
+                        <h2 class="section-title">Paper Link</h2>
+                        <ul>
+                          <li>
+                            <a href="https://rikva.vercel.app/" 
+                              target="_blank" 
+                              class="button-link">
+                              View PDF Document
+                            </a>
+                          </li>
+                        </ul>
+                      </section>
+
+                    </div>
+                  </div>
+
+                  <div class="image3-1">
+                    <img class="pic" src="climate_change_impacts.jpg" alt="me">
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="project1">
+                  <div class="content3-1">
+
+                    <div class="left-column">
+                      <section>
+                        <div class="title3-1">
+                          <h2 class="job">UCLA Project</h2>
+                          <h3>Baseball Hall of Fame Prediction</h3>
+                        </div>
+                        <div class="description3-1">
+                          <ul>
+                            <li>Performed exploratory data analysis using visualization techniques from Tableau to understand Hall of Fame voting trends</li>
+                            <li>Developed four predictive models with Random Forest and Boosted Tree (XGBoost) algorithms based on player statistics</li>
+                            <li>Achieved high prediction accuracies (~90%) in identifying potential inductees, demonstrating effectiveness of models</li>
+                          </ul>
+                        </div>
+
+                      </section>
+                      <br>
+                      <section class="reference-links">
+                        <h2 class="section-title">Paper Link</h2>
+                        <ul>
+                          <li>
+                            <a href="Baseball_Hall_of_Fame_Prediction.pdf" 
+                              target="_blank" 
+                              class="button-link">
+                              View PDF Document
+                            </a>
+                          </li>
+                        </ul>
+                      </section>
+                    </div>
+
+                  </div>
+                  <div class="image3-1">
+                    <img class="me2" src="2024_halloffame.jpeg" alt="me">
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="project1">
+                  <div class="content3-1">
+
+                    <div class="left-column">
+                      <section>
+
+                        <div class="title3-1">
+                          <h2 class="job">UCLA Project</h2>
+                          <h3>IMDb Sentiment Analysis</h3>
+                        </div>
+                        <div class="description3-1">
+                          <ul>
+                            <li>Conducted sentiment analysis on 50,000 IMDb movie reviews, operating machine learning essentials for text classification</li>
+                            <li>Applied data pre-processing methods including text cleaning, TF-IDF vectorization, and PCA for dimensionality reduction</li>
+                            <li>Analyzed sentiment transitions in over eight types of cases to provide advice regarding intricate linguistic patterns</li>
+                          </ul>
+                        </div>
+
+                      </section>
+                      <br>
+                      <section class="reference-links">
+                        <h2 class="section-title">Paper Link</h2>
+                        <ul>
+                          <li>
+                            <a href="IMDB_Project.pdf" 
+                              target="_blank" 
+                              class="button-link">
+                              View PDF Document
+                            </a>
+                          </li>
+                        </ul>
+                      </section>
+                    </div>
+
+                  </div>
+                  <div class="image3-1">
+                    <img class="pic" src="sentiment_analysis_diagram.png" alt="me">
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="project1">
+                  <div class="content3-1">
+
+                    <div class="left-column">
+                      <section>
+                        <div class="title3-1">
+                          <h2 class="job">ASA Datafest @UCLA</h2>
+                          <h3>Good Lawyer, Bad Lawyer</h3>
+                        </div>
+                        <div class="description3-1">
+                          <li>Implemented sentiment analysis with NLTK across a dataset of 200,000 client-lawyer conversations, identifying key tones</li>
+                          <li>Created R and Tableau visualizations depicting sentiment distributions by state and analyzed attorney language trends</li>
+                          <li>Analyzed sentiment transitions in over eight types of cases to provide advice regarding intricate linguistic patterns</li>
+                        </div>
+
+                      </section>
+                      <br>
+                      <section class="reference-links">
+                        <h2 class="section-title">Paper Link</h2>
+                        <ul>
+                          <li>
+                            <a href="A6BruinDataBrigade.pdf" 
+                              target="_blank" 
+                              class="button-link">
+                              View PDF Document
+                            </a>
+                          </li>
+                        </ul>
+                      </section>
+                    </div>
+
+                  </div>
+                  <div class="image3-1">
+                    <img class="me2" src="good-bad.webp" alt="me">
+                  </div>
+                </div>
+              </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <div class="next-button3">
+            <a class = "down-arrow" href="#personal_interest">
+              <i class="fas down-arrow-icon fa-chevron-down"></i>
+            </a>
+          </div>
+      </div>
+    </section>
+
+
+    <section id="personal_interest">
+      <div class="container5">
+          <div class="title5">
+              <h1>Personal</h1>
+          </div>
+          <div class="content5">
+
+
+
+            <div id="carousel2" class="carousel slide" data-bs-ride="carousel">
+              <!-- Indicators -->
+              <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carousel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carousel2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carousel2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carousel2" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  <button type="button" data-bs-target="#carousel2" data-bs-slide-to="4" aria-label="Slide 5"></button>
+              </div>
+          
+              <!-- Carousel Inner -->
+              <div class="carousel-inner">
+                  <!-- Slide 1 -->
+                  <div class="carousel-item active">
+                    <iframe src="swimming.html" style="width: 100%; height: 800px; border: none;" id="slide-iframe"></iframe>
+                  </div>
+                  <!-- Slide 2 -->
+                  <div class="carousel-item">
+                    <iframe src="music.html" style="width: 100%; height: 800px; border: none;" id="slide-iframe"></iframe>
+                  </div>
+                  <!-- Slide 3 -->
+                  <div class="carousel-item">
+                    <iframe src="traveling.html" style="width: 100%; height: 800px; border: none;" id="slide-iframe"></iframe>
+                  </div>
+                  <!-- Slide 4 with iframe -->
+                  <div class="carousel-item">
+                      <iframe src="cooking.html" style="width: 100%; height: 800px; border: none;" id="slide-iframe"></iframe>
+                  </div>
+                  <!-- Slide 5 with iframe -->
+                  <div class="carousel-item">
+                    <iframe src="funs.html" style="width: 100%; height: 800px; border: none;" id="slide-iframe"></iframe>
+                </div>
+              </div>
+          
+              <!-- Controls -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          
+
+
+
+          </div>
+          <div class="next-button5">
+              <a class="down-arrow" href="#tech_notes">
+                  <i class="fas down-arrow-icon fa-chevron-down"></i>
+              </a>
+          </div>
+      </div>
+    </section>
+  
+
+
+
+
+
+
+
+
+    <section id = "tech_notes">
+      <div class="container9">
+        <div class="title9">
+          <h1>Tech Notes</h1>
+        </div>
+
+          <div id="carousel3" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carousel3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carousel3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <!-- Carousel Inner -->
+            <div class="carousel-inner">
+              <!-- Slide 1 -->
+              <div class="carousel-item active">
+                <iframe src="tech_notes_1.html" style="width: 100%; height: 800px; border: none;" id="slide-iframe"></iframe>
+              </div>
+              <!-- Slide 2 -->
+              <div class="carousel-item">
+                <iframe src="tech_notes_2.html" style="width: 100%; height: 800px; border: none;" id="slide-iframe"></iframe>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="carousel-item">
+                <iframe src="tech_notes_3.html" style="width: 100%; height: 800px; border: none;" id="slide-iframe"></iframe>
+              </div>
+
+
+            </div>
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel3" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel3" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <div class="next-button6">
+            <a class = "down-arrow" href="#contact">
+              <i class="fas down-arrow-icon fa-chevron-down"></i>
+            </a>
+          </div>
+
+      </div>
+    </section>
+
+  
+
+    <section id = "contact">
+      <div class="container7">
+        <div class="title7">
+          <h1>Contact</h1>
+        </div>
+
+
+
+          <div class="contact-container">
+
+            <div class="contact-info">
+                <p>
+                    <span>&#x1F4CD;</span> San Francisco Bay Area, CA.
+                </p>
+                <p>
+                    <span>&#x1F517;</span> GitHub: <a href="https://github.com/a1anw0ng" target="_blank">@a1anw0ng</a>
+                </p>
+                <p>
+                    <span>&#x2709;</span> Email: alan.j.wong@columbia.edu
+                </p>
+                <p>
+                    <span>&#x1F465;</span> LinkedIn: <a href="https://linkedin.com/in/alanwong11" target="_blank">linkedin.com/in/alanwong11</a>
+                </p>
+            </div>
+    
+            <h2>Let's get in touch. Send me a message:</h2>
+    
+            <form class="contact-form" action="https://formspree.io/f/xyzzbpva" method="POST" >
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+          </div>
+
+
+
+
+        <div class="next-button7">
+          <a class = "down-arrow" href="#bottom">
+            <i class="fas down-arrow-icon fa-chevron-down"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
 
     <footer>
-        <div class="footer-content">
-            <div>
-                <p>&copy; 2035 by Maya Nelson</p>
-            </div>
-            <div>
-                <p><strong>Call:</strong> 408-505-1595</p>
-            </div>
-            <div>
-                <p><strong>Write:</strong> alan.j.wong@columbia.edu</p>
-            </div>
-            <div>
-                <p><strong>Follow:</strong> LinkedIn</p>
-            </div>
+      <div class="container6">
+        <div class="content6">
+
+
+
+          <div class="earth">
+            <img class = "earth-image" src="earth-day.jpg" alt="earth">
+          </div>
+
+
         </div>
+
+
+        <div class="next-button5">
+          <a class = "up-arrow" href="#title">
+            <i class="fas up-arrow-icon fa-chevron-up"></i>
+          </a>
+        </div>
+
+
+      </div>
     </footer>
-</body>
+
+
+
+    <section id = "bottom">
+      <div class="container8">
+
+      </div>
+    </section>   
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script src = "main.js"></script>
+
+    <script>
+
+
+      // window.addEventListener('message', (event) => {
+      //     if (event.data.type === 'closeModal') {
+      //         const modal = document.getElementById('modal');
+      //         modal.style.display = 'none';
+      //         const iframe = document.getElementById('slide-iframe');
+      //         iframe.style.pointerEvents = ''; // Re-enable iframe interactions
+      //     }
+      // });
+
+
+
+    </script>
+
+
+
+    <!-- <script src="custom-carousel.js"></script> -->
+
+  </body>
 </html>
