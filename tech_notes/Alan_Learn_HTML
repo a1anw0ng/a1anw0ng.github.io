@@ -1,0 +1,28 @@
+
+
+3 ways to add CSS code into HTML:
+
+	a. embedded into the tag  -- css only apply to this element
+
+		<h2 style="color:Tomato;">Enough evidence uncovered to indict Trump</h2>
+
+	b. use class: -- all elements could use this class
+
+		<style>
+		    .learnFromYahoo {
+		        color:Tomato;
+		    }
+		</style>
+
+		<h2 class="learnFromYahoo">Enough evidence uncovered to indict Trump</h2>
+
+	c. use defined-tag:  -- all element with the same tag the css will apply
+
+		<style>
+		    h2 {
+		        color:Tomato;
+		    }
+		</style>
+		
+		<h2>Enough evidence uncovered to indict Trump</h2>
+		<h2>Hi alan again</h2>
