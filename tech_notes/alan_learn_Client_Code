@@ -1,0 +1,71 @@
+
+1. Get a basic html templete:
+	<!DOCTYPE html>
+	<html>
+	    <body>
+	    </body>
+	</html>
+
+2. Get a button example from w3schools.com; with function call:
+	<input type="button" onclick="useAxiosToCallServer()" value="GET">
+
+3. Get a function example from Javascript in w3schools:
+        <script>
+            function useAxiosToCallServer() {
+              console.log("HI ALan!")
+            }
+        </script>
+
+4. To test, and see if the function work in Chrome's Inspect
+	To see it in Console tab
+
+5. To include a library or package of Axios into the HTML:
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+
+6. Need to find out the server is up and run for me to call:
+	https://jsonplaceholder.typicode.com
+
+7. Get some example from https://axios-http.com/
+        axios.get("https://jsonplaceholder.typicode.com/todos")
+        .then(res => {
+            //if successful, run this block
+	    console.log(JSON.stringify(res.data))
+        }).catch(err => {
+            //if fails, run this block
+            console.error(err)
+        });
+	
+	# axios -- it is a class object
+	# axios.get -- it is a method of axios class-object; and also the GET method of restful API calls
+	# https://jsonplaceholder.typicode.com  -- it is the 3rd party web server 
+	# /todos  -- it is the restful api entry-point (or the cloud-function that you are calling)
+	# Because of the strange code looking, you known it is a asynchronous-codes.
+        # When you see: .then()  -- it means it is a Promise asynchronous call
+	# Promise -- means the system will take care of your asynchronous call, and promise to return you
+	             with Success or Failure
+	# res -- it is class-object of the response-object; which mean whatever the successful result you got from the web-server
+	# err -- it is class-object of the response-object, but, it is for failure.
+	# console.log(JSON.stringify(res.data)) -- to print the received data from webserver in string format
+
+
+8. Now, all the codes needed:
+<!DOCTYPE html>
+<html>
+    <body>
+        <input type="button" onclick="useAxiosToCallServer()" value="GET">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+        <script>
+            function useAxiosToCallServer() {
+                axios.get("https://jsonplaceholder.typicode.com/todos")
+                .then(res => {
+                    //if successful, run this block
+                    console.log(JSON.stringify(res.data))
+                }).catch(err => {
+                    //if fails, run this block
+                    console.error(err)
+                });
+            }
+        </script>
+    </body>
+</html>
+

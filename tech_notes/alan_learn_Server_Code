@@ -1,0 +1,189 @@
+
+1. How to search for Video to watch in Youtube:
+	a. latest 
+	b. Popular (more people view)
+	c. short and sweet
+	d. with github source code
+
+2. To fetch the source code from github:
+	a. Get the URL for HTTPS
+		https://github.com/WebDevSimplified/express-crash-course.git
+	b. Download and clone the source code from github:
+	 	git clone https://github.com/WebDevSimplified/express-crash-course.git
+
+3. Go into the Folder and launch Visual Studio Code:
+	cd express-crash-course/
+	code .
+
+=============================
+1. Need to install:
+	node
+	npm
+
+2. To check is installed successful:
+	node -vala	
+	npm -v    # node package manager
+
+	guo@guo:~$ node -v
+	v14.17.6
+	guo@guo:~$ npm -v
+	6.14.15
+	guo@guo:~$ 
+
+3. mkdir alanLearn
+   cd alanLearn
+   mkdir alanExpress2
+   cd alanExpress2
+
+4. Create a package.json, and use it to manage all the packages that you are using for this program
+   npm init -y    # -y means "yes" to all or default
+
+5. Code .
+
+6. To install express package:
+	npm i express   # or npm install express
+
+	ls -l
+	ls -lR 
+	ls -lR | wc -l  #To see how files installed
+
+	URL for the express package in NPM website
+		https://www.npmjs.com/package/express
+
+7. To install nodemon tool -only use while you are in development
+	npm i --save-dev nodemon
+
+7.1 Create a file called:
+	server.js in visualCode
+
+
+8. Import 3 lines:
+	const express = require("express")   # import or include express package or library in this file
+
+	const app = express()    # instaniate an express object from express package
+				 # and start the web server
+	app.listen(3000)         # this webserver will running in port: 3000 for localhost
+				 # localhost -- short-name for 127.0.0.1
+				                or in this machine is IP address: 192.168.0.39
+
+9. Now, we could start the server:
+	node server.js
+	or 
+	nodemon server.js
+
+10. How do I known, the server is up:
+	IN browser: 
+		Type in: localhost:3000   
+			=> You will see: Cannot GET /
+
+	Or you can in networking:
+		netstat -anpt | grep :3000
+
+11. To get rid of "Cannot GET /", and implement the first restful API call:
+	app.get("/", (req, res) => {
+	    console.log("function called");
+   	    res.send("This is a return to your call")
+	});
+
+	"/" -- means root function call, which mean if you don't a function name
+	get - the GET method of restful API
+	req object - contains all the request coming from client
+	res object - contains all the response send out from the server
+
+	When you see strange code: => { ... });  -- it means this function is an asynchronous call (non-blocked call)
+		
+	Up to this point, all the function calls you have learned are synchronous calls (blocked call)
+
+
+12. To implement a second api call to get name:
+	app.get("/get-name", (req, res) => {
+	    res.send("alan")
+	});
+
+13. To install ejs   # a package to HTML template,   view engine
+	npm install ejs
+
+	https://ejs.co/		
+
+14. In order to use view engine: ejs, we need to create an folder called: views
+	mkdir views  or create it in vs-code
+
+
+15. Now, use "alan_learn_client_Code"'s html file, and add it into this project:
+	a. create a index.html in vs-code
+	b. copy-and-paste the code:
+
+	<!DOCTYPE html>
+	<html>
+	    <body>
+		<input type="button" onclick="useAxiosToCallServer()" value="GET">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+		<script>
+		    function useAxiosToCallServer() {
+		        axios.get("https://jsonplaceholder.typicode.com/todos")
+		        .then(res => {
+		            //if successful, run this block
+		            console.log(JSON.stringify(res.data))
+		        }).catch(err => {
+		            //if fails, run this block
+		            console.error(err)
+		        });
+		    }
+		</script>
+	    </body>
+	</html>
+
+    Because, we are using ejs, we need to do the following:
+	1. create the hmtl file with a name extension: .ejs
+		ex: index.ejs
+
+	2. This index.ejs have to placed into the views folder
+
+
+
+
+16. Add the follow line to use the "ejs" view engine in express
+	// To set "ejs" into my express app, and use as "view engine"
+	app.set("view engine", "ejs")
+
+
+
+17. To modify the root-entry-point or root api-call, that it will render the htmp file to the client (Browser)
+	app.get("/", (req, res) => {
+	    res.render("index")
+	});
+
+18. Now, it works, when we click the GET button, except that it was calling a 3rd-party api-server,
+    Let change it to call our server's 2nd api-call: /get-name
+
+    So, the client-code is in the views/index.ejs file:
+
+    The Only thing you need to change is 2 things:
+	1. The server that you want to call:
+	2. The restful-api function or entry-point you want to call
+
+	ex: axios.get("https://jsonplaceholder.typicode.com/todos")
+		The Server: https://jsonplaceholder.typicode.com
+		The End-Point:  /todos
+
+	Your own servers:
+	axios.get("http://localhost:3000/get-name")
+		The Server: http://localhost:3000
+		The End-Point:  /get-name
+	
+
+19. Now all the codes:
+	const express = require("express") 
+	const app = express()    
+	app.set("view engine", "ejs")
+
+	app.get("/", (req, res) => {
+	    res.render("index")
+	});
+
+	app.get("/get-name", (req, res) => {
+	    res.send("alan")
+	});
+	app.listen(3000)
+
+	
