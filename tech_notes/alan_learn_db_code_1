@@ -1,0 +1,213 @@
+
+1.
+https://www.youtube.com/watch?v=SY1RtzoR42g&ab_channel=MaksimIvanov
+
+Lowdb + ExpressJS | How to Make a JSON Server
+
+2. git clone https://github.com/satansdeer/json-server.git
+	cd json-server
+	code .
+
+=============================
+1. Need to install:
+	node
+	npm
+
+2. To check is installed successful:
+	node -vala	
+	npm -v    # node package manager
+
+	guo@guo:~$ node -v
+	v14.17.6
+	guo@guo:~$ npm -v
+	6.14.15
+	guo@guo:~$ 
+
+3. mkdir alanLearn
+   cd alanLearn
+   mkdir alanDB1
+   cd alanDB1
+
+4. Create a package.json, and use it to manage all the packages that you are using for this program
+   npm init -y    # -y means "yes" to all or default
+
+5. Code .
+
+6. To install 5 packages:
+	npm i express cors lowdb nanoid body-parser nodemon
+
+7. To create a file: index.js
+
+8. Import the follows lines for the express server:
+	const express = require("express")   # import or include express package or library in this file
+	const app = express()    # instaniate an express object from express package
+	const PORT = 4000;
+				# and start the web server
+	app.listen(PORT, ()=> {
+	  console.log(`Backend is running on http://localhost:${PORT}`)
+	})
+
+	# this webserver will running in port: 4000 for localhost
+	# localhost -- short-name for 127.0.0.1
+	# different from before: app.listen(3000), they add a call-back function to it.
+
+	# call-back function is a primitive asychounous function, before, promise was in inverted
+	# call-back fucntion is the only asychounous function use.
+	# What call-back function does are: 
+	# 	Your code calls the call-back function, then, goes away, and hoping the system will
+	#	calls you back, when the call completes.  Not promise.
+
+
+9. To start the back-end server:
+	nodemon index.js
+	or 
+	node index.js
+
+10.  To test express server with 3 ways and should see: "Cannot GET /":
+	1. Browser:   http://localhost:4000/
+	2. Postman:   GET  localhost:4000
+	3. Curl:      curl http://localhost:4000
+	4. Network:   netstat -anpt | grep :4000
+
+	It means the express server is UP:
+
+
+11. To connect to a json-file DB (lowdb)
+    To add line for db
+	const cors = require("cors")         # import cors package
+	const lowDb = require("lowdb")	     # import lowdb package
+	const FileSync = require("lowdb/adapters/FileSync")   # import a sub package of lowdb, "lowdb/adapters/FileSync"
+	const bodyParser = require("body-parser")   	# import body-parser package
+	const { nanoid } = require("nanoid")  		# import nanoid package
+
+	const db = lowDb(new FileSync('db.json'))   # instaniate an lowdb object from lowdb package
+						    # to point the lowdb object to the json file: db.json
+	db.defaults({ notes: [] }).write()   # to set default value for this lowdb
+
+	app.use(cors())		# to use the cors() as middle-function to (cross-origin Resource Sharing)
+	app.use(bodyParser.json())  # to use bodyParser.json() as middle-function to parse the data in json
+
+11. To add the db file:
+	db.json
+
+12. Steps of trouble-shooting for packages:
+	a. Comment out all the newly added lines
+	b. add back one-by-one, then, you could find that line that have troubles.
+	c. Look at the package.json file for installation versions
+	d. In cases, miss-marching, Do the following:
+		1. delete all all the installed packages and reinstall them again:
+			rm -rf node_modules/     # be careful with this command: "rm -rf"  it will remove all the file perminantely 
+			rm package-lock.json
+			npm i 
+
+			npm i    # to install all the packages in the package.json file
+				 # after the "npm i" you will see 1 folder and 1 file created:
+				 #   node_modules folder -- contains all the packages library file that you installed -- normal you Don't want touch them
+				 #   package-lock.json file -- contains meta data of the packages that you installed  -- normal you Don't want touch them
+
+
+12. Now, we are connected to the DB, but, still we could test it?  
+    In order to test the DB connection, we need an restful API interface to call from client:
+
+13. To add a restful API call to get database's notes info
+	app.get('/notes', (req, res) => {
+	  const data = db.get("notes").value()
+	  return res.json(data)
+	})
+
+	# app.get()  - get method
+	# "/notes"   - api function  
+	# (req, res) - request-object and response-object
+
+	# db access is only this line:
+		const data = db.get("notes").value()
+		
+		# db - it is the lowdb object loaded with "db.json"
+		# db.get() - it is a method from db-object to find the "notes" key in the lowdb
+		# "notes" - it is the key you specify to get from lowdb
+		# .value() - means you are only interested in the values of the key.
+
+
+14. To test it:
+	Browser method#1: http://localhost:4000/notes
+	Postman method#2: GET  localhost:4000/notes
+	Curl method#3: curl http://localhost:4000/notes
+	   Then, use https://jsonformatter.org/ to get a prety-looking json format
+
+
+15. To add a restful API call to create a database's entry into the db.json 
+	app.post('/notes/new', (req, res) => {
+	  const note = req.body
+	  db.get("notes").push({...note, id: nanoid()}).write()
+	  res.json({ success: true })
+	})
+
+	# app.post()  - post method
+	# "/notes/new"   - api function  
+	# (req, res) - request-object and response-object
+
+	# db access is only 2 line2:
+		const note = req.body  # the get the user send-in info from req.body object
+	  	db.get("notes").push({...note, id: nanoid()}).write()
+		
+		# db - it is the lowdb object loaded with "db.json"
+		# db.get() - it is a method from db-object to find the "notes" key in the lowdb
+		# "notes" - it is the key you specify to get from lowdb
+		# .push() - it is a method from db-object to push in new values into the notes key
+		# {...note, id: nanoid()} - Basically to add value of variable note in the lowdb's Key: "notes", 
+					    and use nanoid-object to generate a id for it
+						ex: {
+						      "text": "Hello express js with lowdb - Odi",
+						      "id": "6MtziLIgdEVMLYO3MCzxz"
+						    }
+
+		# .write() - means write those values as anentry in the key: "notes" into lowdb.
+
+
+16. To test it:
+	Browser method#1:  This method does not work, because, it is a POST method
+
+	Postman method#2: POST  localhost:4000/notes/new
+				Body: Raw -> JSON
+					{"text": "Hello express js with lowdb - jenny"}				
+
+	Curl method#3: curl --header "Content-Type: application/json" --request POST --data '{"text": "Hello express js with lowdb - Odi"}' http://localhost:4000/notes/new
+
+==================================
+Below are all the codes:  (in index.js)
+
+const express = require("express")   // import or include express package or library in this file
+const cors = require("cors")         // import cors package
+const lowDb = require("lowdb")	     // import lowdb package
+
+const FileSync = require("lowdb/adapters/FileSync")   // import a sub package of lowdb, "lowdb/adapters/FileSync"
+const bodyParser = require("body-parser")   // import body-parser package
+const { nanoid } = require("nanoid")  		  // import nanoid package
+
+const db = lowDb(new FileSync('db.json'))   // instaniate an lowdb object from lowdb package
+                                            // to point the lowdb object to the json file: db.json
+
+const app = express()   // instaniate an express object from express package
+const PORT = 4000;
+
+app.use(cors())		          // to use the cors() as middle-function to (cross-origin Resource Sharing)
+app.use(bodyParser.json())  // to use bodyParser.json() as middle-function to parse the data in json
+
+
+app.get('/notes', (req, res) => {
+  const data = db.get("notes").value()
+  return res.json(data)
+})
+
+app.post('/notes/new', (req, res) => {
+  const note = req.body
+  db.get("notes").push({
+    ...note, id: nanoid()
+  }).write()
+  res.json({ success: true })
+})
+
+// and start the web server
+app.listen(PORT, ()=> {
+  console.log(`Backend is running on http://localhost:${PORT}`)
+})
