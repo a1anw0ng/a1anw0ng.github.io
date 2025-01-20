@@ -1,0 +1,93 @@
+
+
+1. Goal:
+	How to make the Web-Page dynamic?
+	How to call the other restful-api calls in the server?
+
+
+2. Solution:
+	Javascript in Client-code
+	Axios package
+
+3. See example:
+	Simple Node JS Server | Axios | Express | REST APIs Examples
+	https://www.youtube.com/watch?v=iVhZYgVdthY&ab_channel=HacksInYourHands
+
+3.1 Axios documentation:
+	https://axios-http.com/docs/intro
+
+
+4. To get source code:
+	git clone https://github.com/hetshah25/NodeJSAxiosAPIs.git
+
+5. make sure node and npm is installed
+	node -v
+	npm -v
+
+6. To create a package.json:
+	mkdir alanAxios1
+	cd alanAxios1/=
+	npm init -y
+	code .
+
+7. To install the needed packages:
+	npm i express   # express package is used for to build a server, and serving restful-api for clients to call
+	npm i axios     # axios package is used for client to call the restful-api serving in the server
+
+8. Create a index.js file in vscode
+
+9. To setup a express server with the codes below:
+	const axios = require("axios");
+	const express = require("express");
+
+	const PORT = 8080;
+
+	const app = express();
+
+	app.listen(PORT, () => {
+	  console.log(`Running this application on the Port ${PORT}`);
+	});
+
+10. Implement 2 api calls from express:
+	app.get("/", (req, res) => {
+	    res.send("Hello there!! 1234");
+	  });
+	  
+	app.get("/store", (req, res) => {
+	    res.send("This is store page");
+	});
+
+
+11. To run the express server:
+	node index.js
+
+
+12. To implement the codes to call the extenal restful api server: reqres.in
+	axios.get("https://reqres.in/api/users/2")   # https://reqres.in -- external server's url;  /api/users/2 -- is the api-call or called route
+	    .then((result) => {                      # when you see => {... }) those are asynachrise-call;  .then() -- means it is a promise
+						     # promise means -- the system will promise to return me the result of asynchrise-call in either success or failure 
+		console.log(result.data);
+	    })
+	    .catch((err) => {
+		console.log(err);
+	    });
+
+	axios.post("https://reqres.in/api/users", {name: "morpheus", job: "leader"})
+	  .then((result) => {
+	    console.log(result.data);
+	  })
+	  .catch((err) => {
+	    console.log(err);
+	  });
+
+	# you could see there is No, (req, res) objects, but, you will have result object, which contains the result of the api-call
+	# So, axios is acting as a client to the external api-server.
+
+
+13. The link to the external server: 
+	https://reqres.in/
+
+
+
+
+
