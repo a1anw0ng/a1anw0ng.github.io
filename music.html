@@ -3,179 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Travel Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #415ac7;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-        header {
-            background-color: #193cd4;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        main {
-            display: flex;
-            flex-grow: 1;
-            max-width: 1200px;
-            margin: auto;
-            gap: 20px;
-        }
-        .left-column {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .right-column {
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-        }
-        .section-title {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #009688;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-        .reference-links ul {
-            list-style: none;
-            padding: 0;
-        }
-        .reference-links ul li {
-            margin: 5px 0;
-        }
-        .reference-links ul li a {
-            color: #009688;
-            text-decoration: none;
-        }
-        .reference-links ul li a:hover {
-            text-decoration: underline;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: flex-start;
-        }
-        .thumbnail {
-            width: 150px;
-            height: 100px;
-            object-fit: cover;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .thumbnail:hover {
-            transform: scale(1.05);
-        }
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-    </style>
+    <title>Music - Personal Interests</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=Karla:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Music Page</h1>
-    </header>
-    <main>
-        <div class="left-column">
-            <section>
-                <h2 class="section-title">About My Music</h2>
-                <p>
-                    favorite music, music collections, instrucment to play, go to concerts
-                </p>
-            </section>
+    <div class="carousel-content-wrapper">
+        <h1 class="carousel-page-title">Musical Journey</h1>
+        
+        <div class="carousel-content-section">
+            <div class="carousel-image-container">
+                <img src="audio_and_instrument.png" alt="Music and Instruments" loading="lazy">
+            </div>
+            
+            <div class="carousel-text-content">
+                <p>Music has always been a source of joy and creative expression in my life. From classical piano to modern compositions, it's a journey that continues to inspire and challenge me.</p>
+            </div>
 
-            <section class="reference-links">
-                <h2 class="section-title">Useful Music Resources</h2>
-                <ul>
-                    <li><a href="https://www.lonelyplanet.com" target="_blank">Lonely Planet</a></li>
-                    <li><a href="https://www.tripadvisor.com" target="_blank">TripAdvisor</a></li>
-                    <li><a href="https://www.airbnb.com" target="_blank">Airbnb</a></li>
-                    <li><a href="https://www.skyscanner.net" target="_blank">Skyscanner</a></li>
-                    <li><a href="https://www.nationalgeographic.com/travel" target="_blank">National Geographic Travel</a></li>
-                </ul>
-            </section>
-        </div>
-
-        <div class="right-column">
-            <section>
-                <h2 class="section-title">Music Memories</h2>
-                <div class="gallery">
-                    <!-- Replace these img src with your own images -->
-                    <img src="earth-day.jpg" alt="Thumbnail 1" class="thumbnail">
-                    <img src="https://via.placeholder.com/150" alt="Thumbnail 2" class="thumbnail">
-                    <img src="Data-Science.jpg" alt="Thumbnail 3" class="thumbnail">
-                    <img src="https://via.placeholder.com/150" alt="Thumbnail 4" class="thumbnail">
-                    <img src="https://via.placeholder.com/150" alt="Thumbnail 5" class="thumbnail">
+            <div class="carousel-grid">
+                <div class="carousel-grid-item">
+                    <h3>Musical Skills</h3>
+                    <ul class="carousel-list">
+                        <li>Piano Performance</li>
+                        <li>Music Theory</li>
+                        <li>Digital Music Production</li>
+                    </ul>
                 </div>
-            </section>
+                
+                <div class="carousel-grid-item">
+                    <h3>Favorite Genres</h3>
+                    <ul class="carousel-list">
+                        <li>Classical Music</li>
+                        <li>Contemporary Jazz</li>
+                        <li>Electronic Music</li>
+                    </ul>
+                </div>
+
+                <div class="carousel-grid-item">
+                    <h3>Musical Projects</h3>
+                    <ul class="carousel-list">
+                        <li>Original Compositions</li>
+                        <li>Collaborative Performances</li>
+                        <li>Music Production</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="carousel-text-content">
+                <p>Music is more than just playing notes—it's about expressing emotions, telling stories, and connecting with others through the universal language of melody and rhythm.</p>
+            </div>
         </div>
-    </main>
-
-    <div class="modal" id="modal">
-        <span class="close" id="close">&times;</span>
-        <img src="" alt="Enlarged Photo" id="modalImage">
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('modal');
-            const modalImage = document.getElementById('modalImage');
-            const thumbnails = document.querySelectorAll('.thumbnail');
-    
-            // Add click event listeners to thumbnails
-            thumbnails.forEach(thumbnail => {
-                thumbnail.addEventListener('click', () => {
-                    modalImage.src = thumbnail.src; // Set modal image source to clicked thumbnail
-                    modal.style.display = 'flex'; // Show modal
-                });
-            });
-    
-            // Close modal when clicking outside of the modal content
-            modal.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    closeModal();
-                }
-            });
-    
-            // Close modal on clicking or double-clicking the enlarged image
-            modalImage.addEventListener('click', () => {
-                closeModal();
-            });
-    
-            modalImage.addEventListener('dblclick', () => {
-                closeModal();
-            });
-    
-            // Function to close modal
-            function closeModal() {
-                modal.style.display = 'none';
-                modalImage.src = ''; // Clear modal content
-            }
-        });
-    </script>
 </body>
 </html>

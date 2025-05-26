@@ -3,179 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Travel Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #415ac7;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-        header {
-            background-color: #193cd4;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        main {
-            display: flex;
-            flex-grow: 1;
-            max-width: 1200px;
-            margin: auto;
-            gap: 20px;
-        }
-        .left-column {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .right-column {
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-        }
-        .section-title {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #009688;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-        .reference-links ul {
-            list-style: none;
-            padding: 0;
-        }
-        .reference-links ul li {
-            margin: 5px 0;
-        }
-        .reference-links ul li a {
-            color: #009688;
-            text-decoration: none;
-        }
-        .reference-links ul li a:hover {
-            text-decoration: underline;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: flex-start;
-        }
-        .thumbnail {
-            width: 150px;
-            height: 100px;
-            object-fit: cover;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .thumbnail:hover {
-            transform: scale(1.05);
-        }
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-    </style>
+    <title>Fun Activities - Personal Interests</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=Karla:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Funs Page</h1>
-    </header>
-    <main>
-        <div class="left-column">
-            <section>
-                <h2 class="section-title">About My Funs</h2>
-                <p>
-                    Jokes, Fencing, Tennis, and other funs stufff to do....
-                </p>
-            </section>
-
-            <section class="reference-links">
-                <h2 class="section-title">Useful Funs Resources</h2>
-                <ul>
-                    <li><a href="https://www.lonelyplanet.com" target="_blank">Lonely Planet</a></li>
-                    <li><a href="https://www.tripadvisor.com" target="_blank">TripAdvisor</a></li>
-                    <li><a href="https://www.airbnb.com" target="_blank">Airbnb</a></li>
-                    <li><a href="https://www.skyscanner.net" target="_blank">Skyscanner</a></li>
-                    <li><a href="https://www.nationalgeographic.com/travel" target="_blank">National Geographic Travel</a></li>
-                </ul>
-            </section>
-        </div>
-
-        <div class="right-column">
-            <section>
-                <h2 class="section-title">Funs Memories</h2>
-                <div class="gallery">
-                    <!-- Replace these img src with your own images -->
-                    <img src="gym_1.jpeg" alt="Thumbnail 1" class="thumbnail">
-                    <img src="gym_2.jpeg" alt="Thumbnail 2" class="thumbnail">
-                    <img src="gym_3.jpeg" alt="Thumbnail 3" class="thumbnail">
-                    <img src="gym_4.jpg" alt="Thumbnail 4" class="thumbnail">
-                    <img src="gym_5.jpg" alt="Thumbnail 5" class="thumbnail">
+    <div class="carousel-content-wrapper">
+        <h1 class="carousel-page-title">Fun & Recreation</h1>
+        
+        <div class="carousel-content-section">
+            <div class="carousel-image-container">
+                <div class="fun-image-grid">
+                    <img src="gym_1.jpeg" alt="Fun Activity 1" loading="lazy" class="fun-grid-img">
+                    <img src="gym_2.jpeg" alt="Fun Activity 2" loading="lazy" class="fun-grid-img">
+                    <img src="gym_3.jpeg" alt="Fun Activity 3" loading="lazy" class="fun-grid-img">
+                    <img src="gym_4.jpg" alt="Fun Activity 4" loading="lazy" class="fun-grid-img">
+                    <img src="gym_5.jpg" alt="Fun Activity 5" loading="lazy" class="fun-grid-img">
                 </div>
-            </section>
+            </div>
+            
+            <div class="carousel-text-content">
+                <p>Life is all about finding joy in various activities and creating memorable experiences. Here's a glimpse into the different ways I like to have fun and stay active.</p>
+            </div>
+
+            <div class="carousel-grid">
+                <div class="carousel-grid-item">
+                    <h3>Outdoor Activities</h3>
+                    <ul class="carousel-list">
+                        <li>Hiking Adventures</li>
+                        <li>Beach Volleyball</li>
+                        <li>Mountain Biking</li>
+                    </ul>
+                </div>
+                
+                <div class="carousel-grid-item">
+                    <h3>Indoor Hobbies</h3>
+                    <ul class="carousel-list">
+                        <li>Board Game Nights</li>
+                        <li>Movie Marathons</li>
+                        <li>Puzzle Solving</li>
+                    </ul>
+                </div>
+
+                <div class="carousel-grid-item">
+                    <h3>Social Activities</h3>
+                    <ul class="carousel-list">
+                        <li>Community Events</li>
+                        <li>Group Sports</li>
+                        <li>Cultural Festivals</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="carousel-text-content">
+                <p>Whether it's exploring the outdoors, engaging in friendly competition, or simply enjoying quality time with friends, these activities help maintain a balanced and enjoyable lifestyle.</p>
+            </div>
         </div>
-    </main>
-
-    <div class="modal" id="modal">
-        <span class="close" id="close">&times;</span>
-        <img src="" alt="Enlarged Photo" id="modalImage">
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('modal');
-            const modalImage = document.getElementById('modalImage');
-            const thumbnails = document.querySelectorAll('.thumbnail');
-    
-            // Add click event listeners to thumbnails
-            thumbnails.forEach(thumbnail => {
-                thumbnail.addEventListener('click', () => {
-                    modalImage.src = thumbnail.src; // Set modal image source to clicked thumbnail
-                    modal.style.display = 'flex'; // Show modal
-                });
-            });
-    
-            // Close modal when clicking outside of the modal content
-            modal.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    closeModal();
-                }
-            });
-    
-            // Close modal on clicking or double-clicking the enlarged image
-            modalImage.addEventListener('click', () => {
-                closeModal();
-            });
-    
-            modalImage.addEventListener('dblclick', () => {
-                closeModal();
-            });
-    
-            // Function to close modal
-            function closeModal() {
-                modal.style.display = 'none';
-                modalImage.src = ''; // Clear modal content
-            }
-        });
-    </script>
 </body>
 </html>
