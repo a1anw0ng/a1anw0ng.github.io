@@ -10,10 +10,11 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: transparent;
+            color: white;
         }
         header {
-            background: #333;
+            background: transparent;
             color: #fff;
             padding: 10px 15px;
             text-align: center;
@@ -28,29 +29,33 @@
             padding: 0;
         }
         li {
-            border: 1px solid #ccc;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 5px;
             margin: 10px 0;
             padding: 15px;
-            background: #f9f9f9;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
         }
         li:nth-child(even) {
-            background: #e9e9e9;
+            background: rgba(255, 255, 255, 0.08);
         }
         a {
             text-decoration: none;
+            color: white;
         }
         a span.prefix {
-            color: #1e90ff; /* Lighter blue for "Linux Commands --" */
+            color: #7ac2df;
             font-weight: bold;
         }
         a span.suffix {
-            color: #0056b3; /* Darker blue for the text after "--" */
+            color: #a8d8eb;
             text-decoration: underline;
         }
         a:hover span.prefix,
         a:hover span.suffix {
             text-decoration: underline;
+            opacity: 0.8;
         }
     </style>
 </head>

@@ -6,7 +6,6 @@ gsap.to(".navi", {
     start: "top 500px",
     toggleActions: "play complete play reverse"
   },
-  backgroundColor: "rgb(0, 0, 0)",
   height: 100,
   ease: "power1.out",
   duration: 0.5,
@@ -19,7 +18,6 @@ gsap.to(".container2, .container1", {
     start: "top 500px",
     toggleActions: "play complete play reverse"
   },
-  backgroundColor: "rgb(50, 122, 189)",
   ease: "power1.out",
   duration: 0.5
 });
@@ -30,7 +28,6 @@ gsap.to(".container4, #carousel1, .title3, .content3-1, .container5, .container6
     start: "top 1100px",
     toggleActions: "play complete play reverse"
   },
-  backgroundColor: "rgb(13, 143, 218)",
   ease: "power1.out",
   duration: 0.5
 });
