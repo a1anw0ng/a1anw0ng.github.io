@@ -1,16 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.to(".navi", {
-  scrollTrigger: {
-    trigger: "#intro",
-    start: "top 500px",
-    toggleActions: "play complete play reverse"
-  },
-  height: 100,
-  ease: "power1.out",
-  duration: 0.5,
-  borderBottom: "solid 3pxrgb(255, 255, 255)"
-});
 
 gsap.to(".container2, .container1", {
   scrollTrigger: {
@@ -113,26 +102,6 @@ tl1.from(".big-title", {
 
 // tl5 = new TimelineMax();
 
-gsap.from(".content2", {
-  scrollTrigger: {
-    trigger: "#intro",
-    start: "top 200px",
-    toggleActions: "play complete play"
-  },
-  opacity: 0,
-  ease: "power1.out",
-  duration: 1.5
-});
-gsap.from(".image2", {
-  scrollTrigger: {
-    trigger: "#intro",
-    start: "top 200px",
-    toggleActions: "play complete play"
-  },
-  opacity: 0,
-  ease: "power1.out",
-  duration: 1.5
-},"-=1");
 
 gsap.from(".title3", {
   scrollTrigger: {
